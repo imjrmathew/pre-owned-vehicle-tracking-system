@@ -1,0 +1,62 @@
+﻿
+
+@{
+    ViewBag.Title = "Login-Pre-Own Vehicle Tracking Details";
+    Layout = null;
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="~/Scripts/notify.js"></script>
+<style>
+        .boxtxt{
+        border-radius:20px;
+    }
+    .boxtxt:focus{
+            border-color:#007bff;
+    }
+</style>
+@using (Html.BeginForm("forgetpwd","ManageUser",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="modal fade" id="forgetpwdmodal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="login px-4 mx-auto mw-100">
+                        <h5 class="text-center mb-4" >Forget Password ?</h5>
+                        <form>
+                            <div class="form-group">
+                                @Html.Label("Username", htmlAttributes: new { @class = "mb-2 user1" })
+                                <div>
+                                    @Html.Editor("usernam", new { htmlAttributes = new { @class = "form-control user1 boxtxt", required = "required"} })
+                                </div>
+                                <small id="emailHelp" class="form-text text-muted user1">We'll send password to your Email.</small>
+                            </div>
+                            <br />
+                            <button type="submit"  class="btn btn-primary submit mb-4 boxtxt" onclick="pass()" >Send Mail</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+<script type="text/javascript">
+        function pass() {
+            var usernam = document.getElementById("usernam").value;
+            $.ajax({
+                url: '/ManageUser/forgetpwd',
+                type: "GET",
+                data: { usernam: usernam },
+                datatype: "JSON"
+            });
+        };
+</script>

@@ -1,0 +1,51 @@
+﻿@model PreOwnedVehicle.Models.tblpollution
+
+@{
+    ViewBag.Title = "listPollutiondetails";
+    Layout = "~/Views/Shared/_LayoutPollution.cshtml";
+}
+
+<h2>Pollution Details</h2>
+
+<div>
+    <h4>tblpollution</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.pollutionid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pollutionid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.loginid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loginid)
+        </dd>*@
+
+        <dt>
+            Vehicle No
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblvehiclereg.vehicleid)
+        </dd>
+
+        <dt>
+            Renew Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.renewdate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "editPollutionsdetails", new { id = Model.pollutionid }) |
+    @Html.ActionLink("Back to List", "listPollution")
+</p>

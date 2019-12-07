@@ -1,0 +1,203 @@
+﻿@model PreOwnedVehicle.Models.tblvehiclereg
+
+@{
+    Layout = "~/Views/Shared/_LayoutRTO.cshtml";
+}
+<style>
+    img {
+        width: 300px;
+    }
+
+    .img-circle {
+        height: 300px;
+    }
+</style>
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <strong style="font-size:20px">Registration</strong>
+            <small style="font-size:15px"> Details</small>
+        </div>
+        <div class="card-body card-block">
+            <div>
+                <div>
+                    <div>
+                        <img src="@Model.file1" alt="image" class="img-circle img-thumbnail " style="border-radius:300px;" />
+                    </div>
+                </div>
+                <hr />
+                <dl class="dl-horizontal">
+                    @*<dt>
+                            @Html.DisplayNameFor(model => model.regid)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.regid)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.loginid)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.loginid)
+                        </dd>*@  
+
+                    <dt>
+                        Vehicle No
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.vehicleid)
+                    </dd>
+                    <dt>
+                        Reg Owner Name
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.regownername)
+                    </dd>
+
+                    <dt>
+                        Permanent Address
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.permanentaddr)
+                    </dd>
+
+                    <dt>
+                        Mobile
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.mobile)
+                    </dd>
+
+                    <dt>
+                        City
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.tblcity.cityname)
+                    </dd>
+
+                    <dt>
+                        Description
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.briefdescription)
+                    </dd>
+
+                    <dt>
+                        Dealer Name
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.dealername)
+                    </dd>
+
+                    <dt>
+                        Address
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.address)
+                    </dd>
+
+                    <dt>
+                        Maker Name
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.makername)
+                    </dd>
+
+
+
+                    <dt>
+                        Class of Vehicle
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.classfvehicle)
+                    </dd>
+
+                    <dt>
+                        Type of Body
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.typeofbody)
+                    </dd>
+
+                    <dt>
+                        Chassis No
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.chassisno)
+                    </dd>
+
+                    <dt>
+                        Engine No
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.engineno)
+                    </dd>
+
+                    <dt>
+                        Fuel
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.fuel)
+                    </dd>
+
+                    <dt>
+                        Color
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.color)
+                    </dd>
+
+                    <dt>
+                        Year of Manufacture
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.yearofmanf)
+                    </dd>
+
+                    <dt>
+                        Seat Capacity
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.seatcapacity)
+                    </dd>
+
+                    <dt>
+                        Tax
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.tax)
+                    </dd>
+
+                    <dt>
+                        Tax Paid On
+                    </dt>
+
+                    <dd>
+                        @Convert.ToString(string.Format("{0:dd/MM/yyyy}", Model.taxpaidon))
+                        @*@Html.DisplayFor(model => model.taxpaidon)*@
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>

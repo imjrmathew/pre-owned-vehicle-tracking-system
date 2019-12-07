@@ -1,0 +1,221 @@
+﻿@model IEnumerable<PreOwnedVehicle.Models.tblcity>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .buttonlg {
+        border-radius: 20px;
+        color: white;
+        background-color: #007bff;
+        border: 2px solid #007bff;
+        outline: none;
+        transition: .5s;
+    }
+
+        .buttonlg:hover {
+            background-color: white;
+            color: #007bff;
+            border: 2px solid #007bff;
+        }
+
+    .citytxt {
+        border-radius: 20px;
+    }
+
+        .citytxt:focus {
+            border-color: #007bff;
+        }
+
+    .butsml {
+        padding: 0px;
+        margin: 0px;
+        border-radius: 20px;
+        width: 90px;
+        height: 25px;
+        color: white;
+        background-color: #007bff;
+        border: 2px solid #007bff;
+        outline: none;
+        transition: .5s;
+        font-size: 13px;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+        .butsml:hover {
+            background-color: white;
+            color: #007bff;
+            border: 2px solid #007bff;
+        }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+
+    function geteditcity(passid) {
+
+        $.ajax({
+            url: '/Admin/GetEditCity',
+            type: "GET",
+            data: { passid: passid },
+            dataType: "JSON",
+        success: function (model) {
+            $("#cityid").val(model.cid);
+            $("#cityname").val(model.cname);
+            $("#districtname").val(model.did).attr("selected=selected");
+            $("#editcitymodal").modal("show");
+    },
+        error: function () {
+            alert("Invalid");
+    }
+    });
+    };
+
+    function updateedit() {
+        var Data = $("#formsubmit").serialize();
+        $.ajax({
+            url: '/Admin/UpdateCity',
+            type: "POST",
+            data: Data,
+            dataType: "JSON",
+            success: function (model) {
+                if (model.result) {
+                    window.location.reload();
+                    $("#editcitymodal").modal("hide");
+                }
+            },
+            error: function () {
+                alert("Invalid");
+            }
+        });
+    };
+
+    </script>
+
+<body>
+    <div class="content-inner">
+        <!-- Page Header-->
+        <header class="page-header">
+            <div class="container-fluid">
+                <h2 class="no-margin-bottom">Welcome, @{Html.RenderAction("adminname", "Admin");}</h2>
+            </div>
+        </header>
+        <!-- Breadcrumb-->
+        <div class="breadcrumb-holder container-fluid">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="AdminHome">Home</a></li>
+                <li class="breadcrumb-item active">City </li>
+            </ul>
+        </div>
+        <section class="tables">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-close">
+                                <div class="dropdown">
+                                    <button type="button" id="closeCard3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                    <div aria-labelledby="closeCard3" class="dropdown-menu dropdown-menu-right has-shadow">
+                                        <a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-header d-flex align-items-center">
+                                <h3 class="h4">Cities</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="col-lg-5 float-left" style="margin-top:10px;">
+                                    <input type="submit" value="Add New City" data-toggle="modal" data-target="#addcitymodal" class="btn btn-primary submit mb-4 buttonlg" />
+                                </div>
+                                <div class="col-lg-5 float-right">
+                                    <div class="form-group-material">
+                                        <input id="myInput" type="text" required class="input-material">
+                                        <label for="myInput" class="label-material" style="font-weight:bold">Search</label>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>
+                                                    City Name
+                                                </th>
+                                                <th>
+                                                    District Name
+                                                </th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="myTable">
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.cityname)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.tbldistrict.districtname)
+                                                    </td>
+                                                    <td>
+                                                        <input type="submit" value="Edit" class="butsml" onclick="geteditcity(@item.cityid)" />
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="modal fade" id="editcitymodal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm role=" document">
+            <div class="modal-content" style="border-radius:10px;">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit City</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formsubmit">
+                        @Html.Hidden("cityid", new { @id = "cityid" })
+                        <div class="form-group">
+                            @Html.Label("districtid", "District Name:", htmlAttributes: new { @class = "mb-2" })
+                            <div>
+                                @Html.DropDownList("districtid", new SelectList(ViewBag.dist, "districtid", "districtname"), htmlAttributes: new { @id = "districtname", @class = "form-control citytxt" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("cityname", "City Name:", htmlAttributes: new { @class = "mb-2" })
+                            <div>
+                                @Html.Editor("cityname", new { htmlAttributes = new { @id = "cityname", @class = "form-control citytxt" } })
+                            </div>
+                        </div>
+                    </form>
+                    <br />
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary submit buttonlg" onclick="updateedit()">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    @{Html.RenderAction("AddCity", "Admin");}
+</body>

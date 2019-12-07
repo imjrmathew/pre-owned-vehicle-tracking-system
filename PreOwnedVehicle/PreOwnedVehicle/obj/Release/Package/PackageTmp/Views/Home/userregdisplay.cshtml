@@ -1,0 +1,302 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<style>
+    img {
+        width: 300px;
+    }
+
+    .img-circle {
+        height: 300px;
+        border: 7px solid white;
+        border-radius: 300px;
+        outline: none;
+    }
+</style>
+<br />
+<br />
+<div class="logo float-left col-lg-12">
+    <!-- Uncomment below if you prefer to use an image logo -->
+    @*<h1 class="text-light"><a href="#header"><span class="font">Pre-Own Vehicle Details</span></a></h1>*@
+    <a href="Index" class="scrollto"><img src="~/Content/newstrap/img/logo.png" alt="" class="img-fluid"></a>
+</div>
+<br />
+<br />
+<br />
+<br />
+<div class="row">
+    <div class="col-lg-6">
+        <div class="col-lg-12">
+            <div class="card" style="border-radius:20px;">
+                <div class="card-header" style="border-top-left-radius:20px;border-top-right-radius:20px;">
+                    <strong style="font-size:20px">Registration</strong>
+                    <small style="font-size:15px"> Details</small>
+                </div>
+                <div class="card-body card-block">
+                    <div>
+                        <div>
+                            @foreach (var item in ViewBag.vehicle)
+                            {
+                                <dl>
+                                    <dt>
+                                    </dt>
+                                    <dd>
+                                        <img src="@item.file1" alt="image" class="img-circle img-thumbnail">
+                                    </dd>
+                                </dl>
+                                <dl class="row">
+                                    <dt class="col-md-6">
+                                        Vehicle No:
+                                    </dt>
+                                    <dd>
+
+                                        @item.vehicleid
+                                    </dd>
+                                    <dt class="col-md-6">
+                                        Reg Owner Name:
+                                    </dt>
+                                    <dd>
+                                        @item.regownername
+                                    </dd>
+                                    <dt class="col-md-6">
+                                        Address:
+                                    </dt>
+                                    <dd>
+                                        @item.permanentaddr
+                                    </dd>
+                                    <dt class="col-md-6">
+                                        Mobile:
+                                    </dt>
+                                    <dd>
+                                        @item.mobile
+                                    </dd>
+                                    <dt class="col-md-6">
+                                        Dealer Name:
+                                    </dt>
+                                    <dd>
+                                        @item.dealername
+                                    </dd>
+                                    <dt class="col-md-6">
+                                        Address:
+                                    </dt>
+                                    <dd>
+                                        @item.address
+                                    </dd>
+                                    <dt class="col-md-6">
+                                        City:
+                                    </dt>
+                                    <dd>
+                                        @item.tblcity.cityname
+                                    </dd>
+                                    <dt class="col-md-6">
+                                        Makers Name:
+                                    </dt>
+                                    <dd>
+                                        @item.makername
+                                    </dd>
+                                    <dt class="col-md-6">
+                                        Class of Vehicle:
+                                    </dt>
+                                    <dd>
+                                        @item.classfvehicle
+                                    </dd>
+                                    <dt class="col-md-6">
+                                        Body Type:
+                                    </dt>
+                                    <dd>
+                                        @item.typeofbody
+                                    </dd>
+                                    <dt class="col-md-6">
+                                        Chassis No:
+                                    </dt>
+                                    <dd>
+                                        @item.chassisno
+                                    </dd>
+                                    <dt class="col-md-6">
+                                        Engine No:
+                                    </dt>
+                                    <dd>
+                                        @item.engineno
+                                    </dd>
+                                    <dt class="col-md-6">
+                                        Fuel:
+                                    </dt>
+                                    <dd>
+                                        @item.fuel
+                                    </dd>
+                                    <dt class="col-md-6">
+                                        Color:
+                                    </dt>
+                                    <dd>
+                                        @item.color
+                                    </dd>
+                                    <dt class="col-md-6">
+                                        Year of Manufacture:
+                                    </dt>
+                                    <dd>
+                                        @item.yearofmanf
+                                    </dd>
+                                    <dt class="col-md-6">
+                                        Seat Capacity:
+                                    </dt>
+                                    <dd>
+                                        @item.seatcapacity
+                                    </dd>
+                                    <dt class="col-md-6">
+                                        Tax:
+                                    </dt>
+                                    <dd>
+                                        @item.tax
+                                    </dd>
+                                    <dt class="col-md-6">
+                                        Tax Paid On:
+                                    </dt>
+                                    <dd>
+                                        @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.taxpaidon))
+
+                                    </dd>
+                                    <dt class="col-md-6">
+                                        Description:
+                                    </dt>
+                                    <dd>
+                                        @item.briefdescription
+                                    </dd>
+                                </dl>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-lg-6">
+        <div class="col-lg-12">
+            <div class="card" style="border-radius:20px;">
+                <div class="card-header" style="border-top-left-radius:20px;border-top-right-radius:20px;">
+                    <strong style="font-size:20px">Insurance</strong>
+                    <small style="font-size:15px"> Details</small>
+                </div>
+                <div class="card-body card-block">
+                    <div>
+                        <div>
+                            @foreach (var item1 in ViewBag.insurances)
+                            {
+                                <dl class="row">
+                                    <dt class="col-md-6">
+                                        Amount:
+                                    </dt>
+                                    <dd>
+                                        @item1.amount
+                                    </dd>
+                                    <dt class="col-md-6">
+                                        Renew Date:
+                                    </dt>
+                                    <dd>
+                                        @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item1.renewdate))
+                                    </dd>
+                                </dl>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-lg-12">
+            <div class="card" style="border-radius:20px;">
+                <div class="card-header" style="border-top-left-radius:20px;border-top-right-radius:20px;">
+                    <strong style="font-size:20px">Police</strong>
+                    <small style="font-size:15px"> Cases</small>
+                </div>
+                <div class="card-body card-block">
+                    <div>
+                        <div>
+                            @foreach (var item2 in ViewBag.polices)
+                            {
+                                <dl class="row">
+                                    <dt class="col-md-6">
+                                        Complaints:
+                                    </dt>
+                                    <dd>
+                                        @item2.details
+                                    </dd>
+                                </dl>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-12">
+            <div class="card" style="border-radius:20px;">
+                <div class="card-header" style="border-top-left-radius:20px;border-top-right-radius:20px;">
+                    <strong style="font-size:20px">Service</strong>
+                    <small style="font-size:15px"> Details</small>
+                </div>
+                <div class="card-body card-block">
+                    <div>
+                        <div>
+                            @foreach (var item3 in ViewBag.services)
+                            {
+                                <dl class="row">
+                                    <dt class="col-md-6">
+                                        Details:
+                                    </dt>
+                                    <dd>
+                                        @item3.details
+                                    </dd>
+                                    <dt class="col-md-6">
+                                        Renew Date:
+                                    </dt>
+                                    <dd>
+                                        @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item3.renewdate))
+                                    </dd>
+                                </dl>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-12" >
+            <div class="card" style="border-radius:20px;">
+                <div class="card-header" style="border-top-left-radius:20px;border-top-right-radius:20px;">
+                    <strong style="font-size:20px">PUC</strong>
+                    <small style="font-size:15px"> Details</small>
+                </div>
+                <div class="card-body card-block">
+                    <div>
+                        <div>
+                            @foreach (var item4 in ViewBag.pollutions)
+                            {
+                                <dl class="row">
+                                    <dt class="col-md-6">
+                                        Renew Date:
+                                    </dt>
+                                    <dd>
+                                        @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item4.renewdate))
+                                    </dd>
+                                </dl>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+        if ('@TempData["dataalready"]' != "") {
+            alert('@TempData["dataalready"]');
+            window.location.href = '@Url.Action("Index","Home")';
+        }
+    </script>

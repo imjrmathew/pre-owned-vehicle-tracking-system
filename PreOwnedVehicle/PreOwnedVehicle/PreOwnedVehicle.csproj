@@ -1,0 +1,1100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F286DDD3-1D74-4F86-A057-3907B5CAEDE3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PreOwnedVehicle</RootNamespace>
+    <AssemblyName>PreOwnedVehicle</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=__MvcPagesVersion__, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InsuranceRegController.cs" />
+    <Compile Include="Controllers\ManageUserController.cs" />
+    <Compile Include="Controllers\PoliceComplientRegController.cs" />
+    <Compile Include="Controllers\PollutionRegController.cs" />
+    <Compile Include="Controllers\ServiceRegController.cs" />
+    <Compile Include="Controllers\VehicleRegController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblfeedback.cs">
+      <DependentUpon>PreOwnedVehicle.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblinsurance.cs">
+      <DependentUpon>PreOwnedVehicle.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblpolicecomplaint.cs">
+      <DependentUpon>PreOwnedVehicle.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblpollution.cs">
+      <DependentUpon>PreOwnedVehicle.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblservice.cs">
+      <DependentUpon>PreOwnedVehicle.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usps.cs" />
+    <Compile Include="Models\PreOwnedVehicle.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PreOwnedVehicle.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PreOwnedVehicle.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PreOwnedVehicle.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PreOwnedVehicle.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PreOwnedVehicle.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblcity.cs">
+      <DependentUpon>PreOwnedVehicle.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbldistrict.cs">
+      <DependentUpon>PreOwnedVehicle.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbllogin.cs">
+      <DependentUpon>PreOwnedVehicle.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblreg.cs">
+      <DependentUpon>PreOwnedVehicle.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblvehiclereg.cs">
+      <DependentUpon>PreOwnedVehicle.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\aboutusi.css" />
+    <Content Include="Content\boot bubble\css\font-face.css" />
+    <Content Include="Content\boot bubble\css\theme.css" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-100.svg" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-100italic.svg" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-200.svg" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-200italic.svg" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-300.svg" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-300italic.svg" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-500.svg" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-500italic.svg" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-600.svg" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-600italic.svg" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-700.svg" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-700italic.svg" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-800.svg" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-800italic.svg" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-900.svg" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-900italic.svg" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-italic.svg" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-regular.svg" />
+    <Content Include="Content\boot bubble\images\bg-title-01.jpg" />
+    <Content Include="Content\boot bubble\images\bg-title-02.jpg" />
+    <Content Include="Content\boot bubble\images\icon\avatar-01.jpg" />
+    <Content Include="Content\boot bubble\images\icon\avatar-02.jpg" />
+    <Content Include="Content\boot bubble\images\icon\avatar-03.jpg" />
+    <Content Include="Content\boot bubble\images\icon\avatar-04.jpg" />
+    <Content Include="Content\boot bubble\images\icon\avatar-05.jpg" />
+    <Content Include="Content\boot bubble\images\icon\avatar-06.jpg" />
+    <Content Include="Content\boot bubble\images\icon\avatar-big-01.jpg" />
+    <Content Include="Content\boot bubble\images\icon\logo-blue.png" />
+    <Content Include="Content\boot bubble\images\icon\logo-mini.png" />
+    <Content Include="Content\boot bubble\images\icon\logo-white.png" />
+    <Content Include="Content\boot bubble\images\icon\logo.png" />
+    <Content Include="Content\boot bubble\images\icon\logorem.png" />
+    <Content Include="Content\boot bubble\images\icon\Untitled-1.jpg" />
+    <Content Include="Content\boot bubble\js\main.js" />
+    <Content Include="Content\boot bubble\vendor\animsition\animsition.min.css" />
+    <Content Include="Content\boot bubble\vendor\animsition\animsition.min.js" />
+    <Content Include="Content\boot bubble\vendor\bootstrap-4.1\bootstrap.min.css" />
+    <Content Include="Content\boot bubble\vendor\bootstrap-4.1\bootstrap.min.js" />
+    <Content Include="Content\boot bubble\vendor\bootstrap-4.1\popper.min.js" />
+    <Content Include="Content\boot bubble\vendor\bootstrap-progressbar\bootstrap-progressbar-3.3.4.min.css" />
+    <Content Include="Content\boot bubble\vendor\bootstrap-progressbar\bootstrap-progressbar.min.js" />
+    <Content Include="Content\boot bubble\vendor\chartjs\Chart.bundle.min.js" />
+    <Content Include="Content\boot bubble\vendor\circle-progress\circle-progress.js" />
+    <Content Include="Content\boot bubble\vendor\circle-progress\circle-progress.min.js" />
+    <Content Include="Content\boot bubble\vendor\countdown\countdowntime.js" />
+    <Content Include="Content\boot bubble\vendor\countdown\jquery.countdown.min.js" />
+    <Content Include="Content\boot bubble\vendor\countdown\moment-timezone-with-data.min.js" />
+    <Content Include="Content\boot bubble\vendor\countdown\moment-timezone.min.js" />
+    <Content Include="Content\boot bubble\vendor\countdown\moment.min.js" />
+    <Content Include="Content\boot bubble\vendor\counter-up\jquery.counterup.min.js" />
+    <Content Include="Content\boot bubble\vendor\counter-up\jquery.waypoints.min.js" />
+    <Content Include="Content\boot bubble\vendor\counter-up\waypoints.min.js" />
+    <Content Include="Content\boot bubble\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="Content\boot bubble\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-4.7\css\font-awesome.css" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-4.7\css\font-awesome.min.css" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-4.7\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-4.7\HELP-US-OUT.txt" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-5\css\fontawesome-all.min.css" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-5\webfonts\fa-brands-400.svg" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-5\webfonts\fa-regular-400.svg" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-5\webfonts\fa-solid-900.svg" />
+    <Content Include="Content\boot bubble\vendor\jquery-3.2.1.min.js" />
+    <Content Include="Content\boot bubble\vendor\jquery-ui.min.js" />
+    <Content Include="Content\boot bubble\vendor\lightbox2\dist\css\lightbox.css" />
+    <Content Include="Content\boot bubble\vendor\lightbox2\dist\images\close.png" />
+    <Content Include="Content\boot bubble\vendor\lightbox2\dist\images\loading.gif" />
+    <Content Include="Content\boot bubble\vendor\lightbox2\dist\images\next.png" />
+    <Content Include="Content\boot bubble\vendor\lightbox2\dist\images\prev.png" />
+    <Content Include="Content\boot bubble\vendor\lightbox2\dist\js\lightbox-plus-jquery.js" />
+    <Content Include="Content\boot bubble\vendor\lightbox2\dist\js\lightbox-plus-jquery.min.js" />
+    <Content Include="Content\boot bubble\vendor\lightbox2\dist\js\lightbox.js" />
+    <Content Include="Content\boot bubble\vendor\lightbox2\dist\js\lightbox.min.js" />
+    <Content Include="Content\boot bubble\vendor\lightbox2\src\css\lightbox.css" />
+    <Content Include="Content\boot bubble\vendor\lightbox2\src\images\close.png" />
+    <Content Include="Content\boot bubble\vendor\lightbox2\src\images\loading.gif" />
+    <Content Include="Content\boot bubble\vendor\lightbox2\src\images\next.png" />
+    <Content Include="Content\boot bubble\vendor\lightbox2\src\images\prev.png" />
+    <Content Include="Content\boot bubble\vendor\lightbox2\src\js\lightbox.js" />
+    <Content Include="Content\boot bubble\vendor\mdi-font\css\material-design-iconic-font.css" />
+    <Content Include="Content\boot bubble\vendor\mdi-font\css\material-design-iconic-font.min.css" />
+    <Content Include="Content\boot bubble\vendor\mdi-font\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Content\boot bubble\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="Content\boot bubble\vendor\perfect-scrollbar\perfect-scrollbar.js" />
+    <Content Include="Content\boot bubble\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="Content\boot bubble\vendor\progressbar\progressbar.js" />
+    <Content Include="Content\boot bubble\vendor\progressbar\progressbar.min.js" />
+    <Content Include="Content\boot bubble\vendor\select2\select2.min.css" />
+    <Content Include="Content\boot bubble\vendor\select2\select2.min.js" />
+    <Content Include="Content\boot bubble\vendor\slick\ajax-loader.gif" />
+    <Content Include="Content\boot bubble\vendor\slick\fonts\slick.svg" />
+    <Content Include="Content\boot bubble\vendor\slick\slick-theme.css" />
+    <Content Include="Content\boot bubble\vendor\slick\slick.css" />
+    <Content Include="Content\boot bubble\vendor\slick\slick.js" />
+    <Content Include="Content\boot bubble\vendor\slick\slick.min.js" />
+    <Content Include="Content\boot bubble\vendor\smk-accordion\accordion.css" />
+    <Content Include="Content\boot bubble\vendor\smk-accordion\accordion.js" />
+    <Content Include="Content\boot bubble\vendor\smk-accordion\accordion.min.js" />
+    <Content Include="Content\boot bubble\vendor\sweetalert\sweetalert.min.js" />
+    <Content Include="Content\boot bubble\vendor\vector-map\jquery.vmap.brazil.js" />
+    <Content Include="Content\boot bubble\vendor\vector-map\jquery.vmap.europe.js" />
+    <Content Include="Content\boot bubble\vendor\vector-map\jquery.vmap.france.js" />
+    <Content Include="Content\boot bubble\vendor\vector-map\jquery.vmap.germany.js" />
+    <Content Include="Content\boot bubble\vendor\vector-map\jquery.vmap.js" />
+    <Content Include="Content\boot bubble\vendor\vector-map\jquery.vmap.min.js" />
+    <Content Include="Content\boot bubble\vendor\vector-map\jquery.vmap.russia.js" />
+    <Content Include="Content\boot bubble\vendor\vector-map\jquery.vmap.sampledata.js" />
+    <Content Include="Content\boot bubble\vendor\vector-map\jquery.vmap.usa.js" />
+    <Content Include="Content\boot bubble\vendor\vector-map\jquery.vmap.world.js" />
+    <Content Include="Content\boot bubble\vendor\vector-map\jqvmap.min.css" />
+    <Content Include="Content\boot bubble\vendor\wow\animate.css" />
+    <Content Include="Content\boot bubble\vendor\wow\wow.min.js" />
+    <Content Include="Content\boot normal\css\custom.css" />
+    <Content Include="Content\boot normal\css\fontastic.css" />
+    <Content Include="Content\boot normal\css\style.blue.css" />
+    <Content Include="Content\boot normal\css\style.default.css" />
+    <Content Include="Content\boot normal\css\style.green.css" />
+    <Content Include="Content\boot normal\css\style.pink.css" />
+    <Content Include="Content\boot normal\css\style.red.css" />
+    <Content Include="Content\boot normal\css\style.sea.css" />
+    <Content Include="Content\boot normal\css\style.violet.css" />
+    <Content Include="Content\boot normal\fonts\dashboard.svg" />
+    <Content Include="Content\boot normal\icons-reference\fonts\dashboard.svg" />
+    <Content Include="Content\boot normal\icons-reference\icons-reference.html" />
+    <Content Include="Content\boot normal\icons-reference\styles.css" />
+    <Content Include="Content\boot normal\img\avatar-0.jpg" />
+    <Content Include="Content\boot normal\img\avatar-1.jpg" />
+    <Content Include="Content\boot normal\img\avatar-10.jpg" />
+    <Content Include="Content\boot normal\img\avatar-11.jpg" />
+    <Content Include="Content\boot normal\img\avatar-2.jpg" />
+    <Content Include="Content\boot normal\img\avatar-3.jpg" />
+    <Content Include="Content\boot normal\img\avatar-4.jpg" />
+    <Content Include="Content\boot normal\img\avatar-5.jpg" />
+    <Content Include="Content\boot normal\img\avatar-6.jpg" />
+    <Content Include="Content\boot normal\img\avatar-7.jpg" />
+    <Content Include="Content\boot normal\img\avatar-8.jpg" />
+    <Content Include="Content\boot normal\img\avatar-9.jpg" />
+    <Content Include="Content\boot normal\img\bg.jpg" />
+    <Content Include="Content\boot normal\img\favicon.ico" />
+    <Content Include="Content\boot normal\img\FB-1000x563.jpg" />
+    <Content Include="Content\boot normal\img\flags\16\AD.png" />
+    <Content Include="Content\boot normal\img\flags\16\AE.png" />
+    <Content Include="Content\boot normal\img\flags\16\AF.png" />
+    <Content Include="Content\boot normal\img\flags\16\AG.png" />
+    <Content Include="Content\boot normal\img\flags\16\AI.png" />
+    <Content Include="Content\boot normal\img\flags\16\AL.png" />
+    <Content Include="Content\boot normal\img\flags\16\AM.png" />
+    <Content Include="Content\boot normal\img\flags\16\AN.png" />
+    <Content Include="Content\boot normal\img\flags\16\AO.png" />
+    <Content Include="Content\boot normal\img\flags\16\AQ.png" />
+    <Content Include="Content\boot normal\img\flags\16\AR.png" />
+    <Content Include="Content\boot normal\img\flags\16\AS.png" />
+    <Content Include="Content\boot normal\img\flags\16\AT.png" />
+    <Content Include="Content\boot normal\img\flags\16\AU.png" />
+    <Content Include="Content\boot normal\img\flags\16\AW.png" />
+    <Content Include="Content\boot normal\img\flags\16\AX.png" />
+    <Content Include="Content\boot normal\img\flags\16\AZ.png" />
+    <Content Include="Content\boot normal\img\flags\16\BA.png" />
+    <Content Include="Content\boot normal\img\flags\16\BB.png" />
+    <Content Include="Content\boot normal\img\flags\16\BD.png" />
+    <Content Include="Content\boot normal\img\flags\16\BE.png" />
+    <Content Include="Content\boot normal\img\flags\16\BF.png" />
+    <Content Include="Content\boot normal\img\flags\16\BG.png" />
+    <Content Include="Content\boot normal\img\flags\16\BH.png" />
+    <Content Include="Content\boot normal\img\flags\16\BI.png" />
+    <Content Include="Content\boot normal\img\flags\16\BJ.png" />
+    <Content Include="Content\boot normal\img\flags\16\BL.png" />
+    <Content Include="Content\boot normal\img\flags\16\BM.png" />
+    <Content Include="Content\boot normal\img\flags\16\BN.png" />
+    <Content Include="Content\boot normal\img\flags\16\BO.png" />
+    <Content Include="Content\boot normal\img\flags\16\BR.png" />
+    <Content Include="Content\boot normal\img\flags\16\BS.png" />
+    <Content Include="Content\boot normal\img\flags\16\BT.png" />
+    <Content Include="Content\boot normal\img\flags\16\BW.png" />
+    <Content Include="Content\boot normal\img\flags\16\BY.png" />
+    <Content Include="Content\boot normal\img\flags\16\BZ.png" />
+    <Content Include="Content\boot normal\img\flags\16\CA.png" />
+    <Content Include="Content\boot normal\img\flags\16\CC.png" />
+    <Content Include="Content\boot normal\img\flags\16\CD.png" />
+    <Content Include="Content\boot normal\img\flags\16\CF.png" />
+    <Content Include="Content\boot normal\img\flags\16\CG.png" />
+    <Content Include="Content\boot normal\img\flags\16\CH.png" />
+    <Content Include="Content\boot normal\img\flags\16\CI.png" />
+    <Content Include="Content\boot normal\img\flags\16\CK.png" />
+    <Content Include="Content\boot normal\img\flags\16\CL.png" />
+    <Content Include="Content\boot normal\img\flags\16\CM.png" />
+    <Content Include="Content\boot normal\img\flags\16\CN.png" />
+    <Content Include="Content\boot normal\img\flags\16\CO.png" />
+    <Content Include="Content\boot normal\img\flags\16\CR.png" />
+    <Content Include="Content\boot normal\img\flags\16\CT.png" />
+    <Content Include="Content\boot normal\img\flags\16\CU.png" />
+    <Content Include="Content\boot normal\img\flags\16\CV.png" />
+    <Content Include="Content\boot normal\img\flags\16\CW.png" />
+    <Content Include="Content\boot normal\img\flags\16\CX.png" />
+    <Content Include="Content\boot normal\img\flags\16\CY.png" />
+    <Content Include="Content\boot normal\img\flags\16\CZ.png" />
+    <Content Include="Content\boot normal\img\flags\16\DE.png" />
+    <Content Include="Content\boot normal\img\flags\16\DJ.png" />
+    <Content Include="Content\boot normal\img\flags\16\DK.png" />
+    <Content Include="Content\boot normal\img\flags\16\DM.png" />
+    <Content Include="Content\boot normal\img\flags\16\DO.png" />
+    <Content Include="Content\boot normal\img\flags\16\DZ.png" />
+    <Content Include="Content\boot normal\img\flags\16\EC.png" />
+    <Content Include="Content\boot normal\img\flags\16\EE.png" />
+    <Content Include="Content\boot normal\img\flags\16\EG.png" />
+    <Content Include="Content\boot normal\img\flags\16\EH.png" />
+    <Content Include="Content\boot normal\img\flags\16\ER.png" />
+    <Content Include="Content\boot normal\img\flags\16\ES.png" />
+    <Content Include="Content\boot normal\img\flags\16\ET.png" />
+    <Content Include="Content\boot normal\img\flags\16\EU.png" />
+    <Content Include="Content\boot normal\img\flags\16\FI.png" />
+    <Content Include="Content\boot normal\img\flags\16\FJ.png" />
+    <Content Include="Content\boot normal\img\flags\16\FK.png" />
+    <Content Include="Content\boot normal\img\flags\16\FM.png" />
+    <Content Include="Content\boot normal\img\flags\16\FO.png" />
+    <Content Include="Content\boot normal\img\flags\16\FR.png" />
+    <Content Include="Content\boot normal\img\flags\16\GA.png" />
+    <Content Include="Content\boot normal\img\flags\16\GB.png" />
+    <Content Include="Content\boot normal\img\flags\16\GD.png" />
+    <Content Include="Content\boot normal\img\flags\16\GE.png" />
+    <Content Include="Content\boot normal\img\flags\16\GG.png" />
+    <Content Include="Content\boot normal\img\flags\16\GH.png" />
+    <Content Include="Content\boot normal\img\flags\16\GI.png" />
+    <Content Include="Content\boot normal\img\flags\16\GL.png" />
+    <Content Include="Content\boot normal\img\flags\16\GM.png" />
+    <Content Include="Content\boot normal\img\flags\16\GN.png" />
+    <Content Include="Content\boot normal\img\flags\16\GQ.png" />
+    <Content Include="Content\boot normal\img\flags\16\GR.png" />
+    <Content Include="Content\boot normal\img\flags\16\GS.png" />
+    <Content Include="Content\boot normal\img\flags\16\GT.png" />
+    <Content Include="Content\boot normal\img\flags\16\GU.png" />
+    <Content Include="Content\boot normal\img\flags\16\GW.png" />
+    <Content Include="Content\boot normal\img\flags\16\GY.png" />
+    <Content Include="Content\boot normal\img\flags\16\HK.png" />
+    <Content Include="Content\boot normal\img\flags\16\HN.png" />
+    <Content Include="Content\boot normal\img\flags\16\HR.png" />
+    <Content Include="Content\boot normal\img\flags\16\HT.png" />
+    <Content Include="Content\boot normal\img\flags\16\HU.png" />
+    <Content Include="Content\boot normal\img\flags\16\IC.png" />
+    <Content Include="Content\boot normal\img\flags\16\ID.png" />
+    <Content Include="Content\boot normal\img\flags\16\IE.png" />
+    <Content Include="Content\boot normal\img\flags\16\IL.png" />
+    <Content Include="Content\boot normal\img\flags\16\IM.png" />
+    <Content Include="Content\boot normal\img\flags\16\IN.png" />
+    <Content Include="Content\boot normal\img\flags\16\IQ.png" />
+    <Content Include="Content\boot normal\img\flags\16\IR.png" />
+    <Content Include="Content\boot normal\img\flags\16\IS.png" />
+    <Content Include="Content\boot normal\img\flags\16\IT.png" />
+    <Content Include="Content\boot normal\img\flags\16\JE.png" />
+    <Content Include="Content\boot normal\img\flags\16\JM.png" />
+    <Content Include="Content\boot normal\img\flags\16\JO.png" />
+    <Content Include="Content\boot normal\img\flags\16\JP.png" />
+    <Content Include="Content\boot normal\img\flags\16\KE.png" />
+    <Content Include="Content\boot normal\img\flags\16\KG.png" />
+    <Content Include="Content\boot normal\img\flags\16\KH.png" />
+    <Content Include="Content\boot normal\img\flags\16\KI.png" />
+    <Content Include="Content\boot normal\img\flags\16\KM.png" />
+    <Content Include="Content\boot normal\img\flags\16\KN.png" />
+    <Content Include="Content\boot normal\img\flags\16\KP.png" />
+    <Content Include="Content\boot normal\img\flags\16\KR.png" />
+    <Content Include="Content\boot normal\img\flags\16\KW.png" />
+    <Content Include="Content\boot normal\img\flags\16\KY.png" />
+    <Content Include="Content\boot normal\img\flags\16\KZ.png" />
+    <Content Include="Content\boot normal\img\flags\16\LA.png" />
+    <Content Include="Content\boot normal\img\flags\16\LB.png" />
+    <Content Include="Content\boot normal\img\flags\16\LC.png" />
+    <Content Include="Content\boot normal\img\flags\16\LI.png" />
+    <Content Include="Content\boot normal\img\flags\16\LK.png" />
+    <Content Include="Content\boot normal\img\flags\16\LR.png" />
+    <Content Include="Content\boot normal\img\flags\16\LS.png" />
+    <Content Include="Content\boot normal\img\flags\16\LT.png" />
+    <Content Include="Content\boot normal\img\flags\16\LU.png" />
+    <Content Include="Content\boot normal\img\flags\16\LV.png" />
+    <Content Include="Content\boot normal\img\flags\16\LY.png" />
+    <Content Include="Content\boot normal\img\flags\16\MA.png" />
+    <Content Include="Content\boot normal\img\flags\16\MC.png" />
+    <Content Include="Content\boot normal\img\flags\16\MD.png" />
+    <Content Include="Content\boot normal\img\flags\16\ME.png" />
+    <Content Include="Content\boot normal\img\flags\16\MF.png" />
+    <Content Include="Content\boot normal\img\flags\16\MG.png" />
+    <Content Include="Content\boot normal\img\flags\16\MH.png" />
+    <Content Include="Content\boot normal\img\flags\16\MK.png" />
+    <Content Include="Content\boot normal\img\flags\16\ML.png" />
+    <Content Include="Content\boot normal\img\flags\16\MM.png" />
+    <Content Include="Content\boot normal\img\flags\16\MN.png" />
+    <Content Include="Content\boot normal\img\flags\16\MO.png" />
+    <Content Include="Content\boot normal\img\flags\16\MP.png" />
+    <Content Include="Content\boot normal\img\flags\16\MQ.png" />
+    <Content Include="Content\boot normal\img\flags\16\MR.png" />
+    <Content Include="Content\boot normal\img\flags\16\MS.png" />
+    <Content Include="Content\boot normal\img\flags\16\MT.png" />
+    <Content Include="Content\boot normal\img\flags\16\MU.png" />
+    <Content Include="Content\boot normal\img\flags\16\MV.png" />
+    <Content Include="Content\boot normal\img\flags\16\MW.png" />
+    <Content Include="Content\boot normal\img\flags\16\MX.png" />
+    <Content Include="Content\boot normal\img\flags\16\MY.png" />
+    <Content Include="Content\boot normal\img\flags\16\MZ.png" />
+    <Content Include="Content\boot normal\img\flags\16\NA.png" />
+    <Content Include="Content\boot normal\img\flags\16\NC.png" />
+    <Content Include="Content\boot normal\img\flags\16\NE.png" />
+    <Content Include="Content\boot normal\img\flags\16\NF.png" />
+    <Content Include="Content\boot normal\img\flags\16\NG.png" />
+    <Content Include="Content\boot normal\img\flags\16\NI.png" />
+    <Content Include="Content\boot normal\img\flags\16\NL.png" />
+    <Content Include="Content\boot normal\img\flags\16\NO.png" />
+    <Content Include="Content\boot normal\img\flags\16\NP.png" />
+    <Content Include="Content\boot normal\img\flags\16\NR.png" />
+    <Content Include="Content\boot normal\img\flags\16\NU.png" />
+    <Content Include="Content\boot normal\img\flags\16\NZ.png" />
+    <Content Include="Content\boot normal\img\flags\16\OM.png" />
+    <Content Include="Content\boot normal\img\flags\16\PA.png" />
+    <Content Include="Content\boot normal\img\flags\16\PE.png" />
+    <Content Include="Content\boot normal\img\flags\16\PF.png" />
+    <Content Include="Content\boot normal\img\flags\16\PG.png" />
+    <Content Include="Content\boot normal\img\flags\16\PH.png" />
+    <Content Include="Content\boot normal\img\flags\16\PK.png" />
+    <Content Include="Content\boot normal\img\flags\16\PL.png" />
+    <Content Include="Content\boot normal\img\flags\16\PN.png" />
+    <Content Include="Content\boot normal\img\flags\16\PR.png" />
+    <Content Include="Content\boot normal\img\flags\16\PS.png" />
+    <Content Include="Content\boot normal\img\flags\16\PT.png" />
+    <Content Include="Content\boot normal\img\flags\16\PW.png" />
+    <Content Include="Content\boot normal\img\flags\16\PY.png" />
+    <Content Include="Content\boot normal\img\flags\16\QA.png" />
+    <Content Include="Content\boot normal\img\flags\16\RE.png" />
+    <Content Include="Content\boot normal\img\flags\16\RO.png" />
+    <Content Include="Content\boot normal\img\flags\16\RS.png" />
+    <Content Include="Content\boot normal\img\flags\16\RU.png" />
+    <Content Include="Content\boot normal\img\flags\16\RW.png" />
+    <Content Include="Content\boot normal\img\flags\16\SA.png" />
+    <Content Include="Content\boot normal\img\flags\16\SB.png" />
+    <Content Include="Content\boot normal\img\flags\16\SC.png" />
+    <Content Include="Content\boot normal\img\flags\16\SD.png" />
+    <Content Include="Content\boot normal\img\flags\16\SE.png" />
+    <Content Include="Content\boot normal\img\flags\16\SG.png" />
+    <Content Include="Content\boot normal\img\flags\16\SH.png" />
+    <Content Include="Content\boot normal\img\flags\16\SI.png" />
+    <Content Include="Content\boot normal\img\flags\16\SK.png" />
+    <Content Include="Content\boot normal\img\flags\16\SL.png" />
+    <Content Include="Content\boot normal\img\flags\16\SM.png" />
+    <Content Include="Content\boot normal\img\flags\16\SN.png" />
+    <Content Include="Content\boot normal\img\flags\16\SO.png" />
+    <Content Include="Content\boot normal\img\flags\16\SR.png" />
+    <Content Include="Content\boot normal\img\flags\16\SS.png" />
+    <Content Include="Content\boot normal\img\flags\16\ST.png" />
+    <Content Include="Content\boot normal\img\flags\16\SV.png" />
+    <Content Include="Content\boot normal\img\flags\16\SX.png" />
+    <Content Include="Content\boot normal\img\flags\16\SY.png" />
+    <Content Include="Content\boot normal\img\flags\16\SZ.png" />
+    <Content Include="Content\boot normal\img\flags\16\TC.png" />
+    <Content Include="Content\boot normal\img\flags\16\TD.png" />
+    <Content Include="Content\boot normal\img\flags\16\TF.png" />
+    <Content Include="Content\boot normal\img\flags\16\TG.png" />
+    <Content Include="Content\boot normal\img\flags\16\TH.png" />
+    <Content Include="Content\boot normal\img\flags\16\TJ.png" />
+    <Content Include="Content\boot normal\img\flags\16\TK.png" />
+    <Content Include="Content\boot normal\img\flags\16\TL.png" />
+    <Content Include="Content\boot normal\img\flags\16\TM.png" />
+    <Content Include="Content\boot normal\img\flags\16\TN.png" />
+    <Content Include="Content\boot normal\img\flags\16\TO.png" />
+    <Content Include="Content\boot normal\img\flags\16\TR.png" />
+    <Content Include="Content\boot normal\img\flags\16\TT.png" />
+    <Content Include="Content\boot normal\img\flags\16\TV.png" />
+    <Content Include="Content\boot normal\img\flags\16\TW.png" />
+    <Content Include="Content\boot normal\img\flags\16\TZ.png" />
+    <Content Include="Content\boot normal\img\flags\16\UA.png" />
+    <Content Include="Content\boot normal\img\flags\16\UG.png" />
+    <Content Include="Content\boot normal\img\flags\16\US.png" />
+    <Content Include="Content\boot normal\img\flags\16\UY.png" />
+    <Content Include="Content\boot normal\img\flags\16\UZ.png" />
+    <Content Include="Content\boot normal\img\flags\16\VA.png" />
+    <Content Include="Content\boot normal\img\flags\16\VC.png" />
+    <Content Include="Content\boot normal\img\flags\16\VE.png" />
+    <Content Include="Content\boot normal\img\flags\16\VG.png" />
+    <Content Include="Content\boot normal\img\flags\16\VI.png" />
+    <Content Include="Content\boot normal\img\flags\16\VN.png" />
+    <Content Include="Content\boot normal\img\flags\16\VU.png" />
+    <Content Include="Content\boot normal\img\flags\16\WF.png" />
+    <Content Include="Content\boot normal\img\flags\16\WS.png" />
+    <Content Include="Content\boot normal\img\flags\16\YE.png" />
+    <Content Include="Content\boot normal\img\flags\16\YT.png" />
+    <Content Include="Content\boot normal\img\flags\16\ZA.png" />
+    <Content Include="Content\boot normal\img\flags\16\ZM.png" />
+    <Content Include="Content\boot normal\img\flags\16\ZW.png" />
+    <Content Include="Content\boot normal\img\flags\16\_abkhazia.png" />
+    <Content Include="Content\boot normal\img\flags\16\_basque-country.png" />
+    <Content Include="Content\boot normal\img\flags\16\_british-antarctic-territory.png" />
+    <Content Include="Content\boot normal\img\flags\16\_commonwealth.png" />
+    <Content Include="Content\boot normal\img\flags\16\_england.png" />
+    <Content Include="Content\boot normal\img\flags\16\_gosquared.png" />
+    <Content Include="Content\boot normal\img\flags\16\_kosovo.png" />
+    <Content Include="Content\boot normal\img\flags\16\_mars.png" />
+    <Content Include="Content\boot normal\img\flags\16\_nagorno-karabakh.png" />
+    <Content Include="Content\boot normal\img\flags\16\_nato.png" />
+    <Content Include="Content\boot normal\img\flags\16\_northern-cyprus.png" />
+    <Content Include="Content\boot normal\img\flags\16\_olympics.png" />
+    <Content Include="Content\boot normal\img\flags\16\_red-cross.png" />
+    <Content Include="Content\boot normal\img\flags\16\_scotland.png" />
+    <Content Include="Content\boot normal\img\flags\16\_somaliland.png" />
+    <Content Include="Content\boot normal\img\flags\16\_south-ossetia.png" />
+    <Content Include="Content\boot normal\img\flags\16\_united-nations.png" />
+    <Content Include="Content\boot normal\img\flags\16\_unknown.png" />
+    <Content Include="Content\boot normal\img\flags\16\_wales.png" />
+    <Content Include="Content\boot normal\img\map-close.png" />
+    <Content Include="Content\boot normal\img\map-marker-blue.png" />
+    <Content Include="Content\boot normal\img\map-marker-default.png" />
+    <Content Include="Content\boot normal\img\map-marker-green.png" />
+    <Content Include="Content\boot normal\img\map-marker-pink.png" />
+    <Content Include="Content\boot normal\img\map-marker-red.png" />
+    <Content Include="Content\boot normal\img\map-marker-sea.png" />
+    <Content Include="Content\boot normal\img\map-marker-violet.png" />
+    <Content Include="Content\boot normal\img\map-marker.png" />
+    <Content Include="Content\boot normal\img\mockup1.jpg" />
+    <Content Include="Content\boot normal\img\mockup2.jpg" />
+    <Content Include="Content\boot normal\img\mockup3.jpg" />
+    <Content Include="Content\boot normal\img\mockup4.jpg" />
+    <Content Include="Content\boot normal\img\mockup5.jpg" />
+    <Content Include="Content\boot normal\img\mockup6.jpg" />
+    <Content Include="Content\boot normal\img\mockup7.jpg" />
+    <Content Include="Content\boot normal\img\multiselect-switch.png" />
+    <Content Include="Content\boot normal\img\photos\paul-morris-116514-unsplash.jpg" />
+    <Content Include="Content\boot normal\img\project-1.jpg" />
+    <Content Include="Content\boot normal\img\project-2.jpg" />
+    <Content Include="Content\boot normal\img\project-3.jpg" />
+    <Content Include="Content\boot normal\img\project-4.jpg" />
+    <Content Include="Content\boot normal\img\template-mac.png" />
+    <Content Include="Content\boot normal\js\charts-custom.js" />
+    <Content Include="Content\boot normal\js\charts-home.js" />
+    <Content Include="Content\boot normal\js\front.js" />
+    <Content Include="Content\boot normal\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\boot normal\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\boot normal\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\boot normal\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\boot normal\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\boot normal\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\boot normal\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Content\boot normal\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\boot normal\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\boot normal\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\boot normal\vendor\chart.js\Chart.bundle.js" />
+    <Content Include="Content\boot normal\vendor\chart.js\Chart.bundle.min.js" />
+    <Content Include="Content\boot normal\vendor\chart.js\Chart.js" />
+    <Content Include="Content\boot normal\vendor\chart.js\Chart.min.js" />
+    <Content Include="Content\boot normal\vendor\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\boot normal\vendor\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\boot normal\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\boot normal\vendor\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\additional-methods.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\jquery.validate.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\jquery.validate.min.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_ar.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_az.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_bg.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_bn_BD.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_ca.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_cs.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_da.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_de.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_el.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_es.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_es_AR.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_es_PE.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_et.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_eu.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_fa.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_fi.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_fr.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_ge.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_gl.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_he.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_hr.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_hu.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_hy_AM.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_id.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_is.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_it.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_ja.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_ka.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_kk.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_ko.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_lt.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_lv.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_mk.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_my.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_nl.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_no.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_pl.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_pt_BR.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_pt_PT.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_ro.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_ru.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_sd.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_si.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_sk.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_sl.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_sr.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_sr_lat.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_sv.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_th.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_tj.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_tr.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_uk.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_ur.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_vi.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_zh.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\messages_zh_TW.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\methods_de.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\methods_es_CL.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\methods_fi.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\methods_nl.js" />
+    <Content Include="Content\boot normal\vendor\jquery-validation\localization\methods_pt.js" />
+    <Content Include="Content\boot normal\vendor\jquery.cookie\jquery.cookie.js" />
+    <Content Include="Content\boot normal\vendor\jquery.cookie\MIT-LICENSE.txt" />
+    <Content Include="Content\boot normal\vendor\jquery\core.js" />
+    <Content Include="Content\boot normal\vendor\jquery\jquery.js" />
+    <Content Include="Content\boot normal\vendor\jquery\jquery.min.js" />
+    <Content Include="Content\boot normal\vendor\jquery\jquery.slim.js" />
+    <Content Include="Content\boot normal\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Content\boot normal\vendor\popper.js\esm\popper-utils.js" />
+    <Content Include="Content\boot normal\vendor\popper.js\esm\popper-utils.min.js" />
+    <Content Include="Content\boot normal\vendor\popper.js\esm\popper.js" />
+    <Content Include="Content\boot normal\vendor\popper.js\esm\popper.min.js" />
+    <Content Include="Content\boot normal\vendor\popper.js\popper-utils.js" />
+    <Content Include="Content\boot normal\vendor\popper.js\popper-utils.min.js" />
+    <Content Include="Content\boot normal\vendor\popper.js\popper.js" />
+    <Content Include="Content\boot normal\vendor\popper.js\popper.min.js" />
+    <Content Include="Content\boot normal\vendor\popper.js\umd\popper-utils.js" />
+    <Content Include="Content\boot normal\vendor\popper.js\umd\popper-utils.min.js" />
+    <Content Include="Content\boot normal\vendor\popper.js\umd\popper.js" />
+    <Content Include="Content\boot normal\vendor\popper.js\umd\popper.min.js" />
+    <Content Include="Content\newstrap\contactform\contactform.js" />
+    <Content Include="Content\newstrap\contactform\Readme.txt" />
+    <Content Include="Content\newstrap\css\scss-files.txt" />
+    <Content Include="Content\newstrap\css\style.css" />
+    <Content Include="Content\newstrap\img\about-extra-1.svg" />
+    <Content Include="Content\newstrap\img\about-extra-2.svg" />
+    <Content Include="Content\newstrap\img\about-img.svg" />
+    <Content Include="Content\newstrap\img\apple-touch-icon.png" />
+    <Content Include="Content\newstrap\img\clients\client-1.png" />
+    <Content Include="Content\newstrap\img\clients\client-2.png" />
+    <Content Include="Content\newstrap\img\clients\client-3.png" />
+    <Content Include="Content\newstrap\img\clients\client-4.png" />
+    <Content Include="Content\newstrap\img\clients\client-5.png" />
+    <Content Include="Content\newstrap\img\clients\client-6.png" />
+    <Content Include="Content\newstrap\img\clients\client-7.png" />
+    <Content Include="Content\newstrap\img\clients\client-8.png" />
+    <Content Include="Content\newstrap\img\favicon.png" />
+    <Content Include="Content\newstrap\img\intro-bg.png" />
+    <Content Include="Content\newstrap\img\intro-img.svg" />
+    <Content Include="Content\newstrap\img\logo.png" />
+    <Content Include="Content\newstrap\img\logonew.png" />
+    <Content Include="Content\newstrap\img\portfolio\app1.jpg" />
+    <Content Include="Content\newstrap\img\portfolio\app2.jpg" />
+    <Content Include="Content\newstrap\img\portfolio\app3.jpg" />
+    <Content Include="Content\newstrap\img\portfolio\card1.jpg" />
+    <Content Include="Content\newstrap\img\portfolio\card2.jpg" />
+    <Content Include="Content\newstrap\img\portfolio\card3.jpg" />
+    <Content Include="Content\newstrap\img\portfolio\web1.jpg" />
+    <Content Include="Content\newstrap\img\portfolio\web2.jpg" />
+    <Content Include="Content\newstrap\img\portfolio\web3.jpg" />
+    <Content Include="Content\newstrap\img\team-1.jpg" />
+    <Content Include="Content\newstrap\img\team-2.jpg" />
+    <Content Include="Content\newstrap\img\team-3.jpg" />
+    <Content Include="Content\newstrap\img\team-4.jpg" />
+    <Content Include="Content\newstrap\img\testimonial-1.jpg" />
+    <Content Include="Content\newstrap\img\testimonial-2.jpg" />
+    <Content Include="Content\newstrap\img\testimonial-3.jpg" />
+    <Content Include="Content\newstrap\img\testimonial-4.jpg" />
+    <Content Include="Content\newstrap\img\testimonial-5.jpg" />
+    <Content Include="Content\newstrap\img\Untitled-2.jpg" />
+    <Content Include="Content\newstrap\js\main.js" />
+    <Content Include="Content\newstrap\lib\animate\animate.css" />
+    <Content Include="Content\newstrap\lib\animate\animate.min.css" />
+    <Content Include="Content\newstrap\lib\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\newstrap\lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\newstrap\lib\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\newstrap\lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\newstrap\lib\counterup\counterup.min.js" />
+    <Content Include="Content\newstrap\lib\easing\easing.js" />
+    <Content Include="Content\newstrap\lib\easing\easing.min.js" />
+    <Content Include="Content\newstrap\lib\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\newstrap\lib\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\newstrap\lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\newstrap\lib\ionicons\css\ionicons.css" />
+    <Content Include="Content\newstrap\lib\ionicons\css\ionicons.min.css" />
+    <Content Include="Content\newstrap\lib\ionicons\fonts\ionicons.svg" />
+    <Content Include="Content\newstrap\lib\isotope\isotope.pkgd.js" />
+    <Content Include="Content\newstrap\lib\isotope\isotope.pkgd.min.js" />
+    <Content Include="Content\newstrap\lib\jquery\jquery-migrate.min.js" />
+    <Content Include="Content\newstrap\lib\jquery\jquery.min.js" />
+    <Content Include="Content\newstrap\lib\lightbox\css\lightbox.css" />
+    <Content Include="Content\newstrap\lib\lightbox\css\lightbox.min.css" />
+    <Content Include="Content\newstrap\lib\lightbox\images\close.png" />
+    <Content Include="Content\newstrap\lib\lightbox\images\loading.gif" />
+    <Content Include="Content\newstrap\lib\lightbox\images\next.png" />
+    <Content Include="Content\newstrap\lib\lightbox\images\prev.png" />
+    <Content Include="Content\newstrap\lib\lightbox\js\lightbox.js" />
+    <Content Include="Content\newstrap\lib\lightbox\js\lightbox.min.js" />
+    <Content Include="Content\newstrap\lib\mobile-nav\mobile-nav.js" />
+    <Content Include="Content\newstrap\lib\owlcarousel\assets\ajax-loader.gif" />
+    <Content Include="Content\newstrap\lib\owlcarousel\assets\owl.carousel.css" />
+    <Content Include="Content\newstrap\lib\owlcarousel\assets\owl.carousel.min.css" />
+    <Content Include="Content\newstrap\lib\owlcarousel\assets\owl.theme.default.css" />
+    <Content Include="Content\newstrap\lib\owlcarousel\assets\owl.theme.default.min.css" />
+    <Content Include="Content\newstrap\lib\owlcarousel\assets\owl.theme.green.css" />
+    <Content Include="Content\newstrap\lib\owlcarousel\assets\owl.theme.green.min.css" />
+    <Content Include="Content\newstrap\lib\owlcarousel\assets\owl.video.play.png" />
+    <Content Include="Content\newstrap\lib\owlcarousel\owl.carousel.js" />
+    <Content Include="Content\newstrap\lib\owlcarousel\owl.carousel.min.js" />
+    <Content Include="Content\newstrap\lib\waypoints\waypoints.min.js" />
+    <Content Include="Content\newstrap\lib\wow\wow.js" />
+    <Content Include="Content\newstrap\lib\wow\wow.min.js" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\PreOwnedVehicle.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PreOwnedVehicle.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\PreOwnedVehicle.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PreOwnedVehicle.edmx</DependentUpon>
+      <LastGenOutput>PreOwnedVehicle.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\PreOwnedVehicle.edmx.diagram">
+      <DependentUpon>PreOwnedVehicle.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\PreOwnedVehicle.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PreOwnedVehicle.edmx</DependentUpon>
+      <LastGenOutput>PreOwnedVehicle.cs</LastGenOutput>
+    </Content>
+    <Content Include="Content\boot normal\data\addresses.json" />
+    <Content Include="Content\boot normal\data\countries.json" />
+    <Content Include="Content\boot normal\fonts\dashboard.eot" />
+    <Content Include="Content\boot normal\fonts\dashboard.ttf" />
+    <Content Include="Content\boot normal\fonts\dashboard.woff" />
+    <Content Include="Content\boot normal\icons-reference\fonts\dashboard.eot" />
+    <Content Include="Content\boot normal\icons-reference\fonts\dashboard.ttf" />
+    <Content Include="Content\boot normal\icons-reference\fonts\dashboard.woff" />
+    <Content Include="Content\boot normal\vendor\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\boot normal\vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\boot normal\vendor\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\boot normal\vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\boot normal\vendor\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\boot normal\vendor\jquery.cookie\component.json" />
+    <Content Include="Content\boot normal\vendor\jquery.cookie\cookie.jquery.json" />
+    <Content Include="Content\newstrap\img\header-bg.psd" />
+    <Content Include="Content\newstrap\img\logo.psd" />
+    <Content Include="Content\newstrap\lib\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\newstrap\lib\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\newstrap\lib\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\newstrap\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\newstrap\lib\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\newstrap\lib\ionicons\fonts\ionicons.eot" />
+    <Content Include="Content\newstrap\lib\ionicons\fonts\ionicons.ttf" />
+    <Content Include="Content\newstrap\lib\ionicons\fonts\ionicons.woff" />
+    <Content Include="Content\newstrap\lib\owlcarousel\LICENSE" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-100.eot" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-100.ttf" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-100.woff" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-100.woff2" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-100italic.eot" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-100italic.ttf" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-100italic.woff" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-100italic.woff2" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-200.eot" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-200.ttf" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-200.woff" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-200.woff2" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-200italic.eot" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-200italic.ttf" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-200italic.woff" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-200italic.woff2" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-300.eot" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-300.ttf" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-300.woff" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-300.woff2" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-300italic.eot" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-300italic.ttf" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-300italic.woff" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-300italic.woff2" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-500.eot" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-500.ttf" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-500.woff" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-500.woff2" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-500italic.eot" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-500italic.ttf" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-500italic.woff" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-500italic.woff2" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-600.eot" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-600.ttf" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-600.woff" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-600.woff2" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-600italic.eot" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-600italic.ttf" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-600italic.woff" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-600italic.woff2" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-700.eot" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-700.ttf" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-700.woff" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-700.woff2" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-700italic.eot" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-700italic.ttf" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-700italic.woff" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-700italic.woff2" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-800.eot" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-800.ttf" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-800.woff" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-800.woff2" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-800italic.eot" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-800italic.ttf" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-800italic.woff" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-800italic.woff2" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-900.eot" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-900.ttf" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-900.woff" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-900.woff2" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-900italic.eot" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-900italic.ttf" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-900italic.woff" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-900italic.woff2" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-italic.eot" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-italic.ttf" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-italic.woff" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-italic.woff2" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-regular.eot" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-regular.ttf" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-regular.woff" />
+    <Content Include="Content\boot bubble\fonts\poppins\poppins-v5-latin-regular.woff2" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-4.7\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-4.7\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-4.7\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-4.7\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-4.7\fonts\FontAwesome.otf" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-5\webfonts\fa-brands-400.eot" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-5\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-5\webfonts\fa-brands-400.woff" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-5\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-5\webfonts\fa-regular-400.eot" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-5\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-5\webfonts\fa-regular-400.woff" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-5\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-5\webfonts\fa-solid-900.eot" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-5\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-5\webfonts\fa-solid-900.woff" />
+    <Content Include="Content\boot bubble\vendor\font-awesome-5\webfonts\fa-solid-900.woff2" />
+    <Content Include="Content\boot bubble\vendor\lightbox2\dist\js\lightbox-plus-jquery.min.map" />
+    <Content Include="Content\boot bubble\vendor\lightbox2\dist\js\lightbox.min.map" />
+    <Content Include="Content\boot bubble\vendor\mdi-font\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Content\boot bubble\vendor\mdi-font\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Content\boot bubble\vendor\mdi-font\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Content\boot bubble\vendor\mdi-font\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Content\boot bubble\vendor\slick\config.rb" />
+    <Content Include="Content\boot bubble\vendor\slick\fonts\slick.eot" />
+    <Content Include="Content\boot bubble\vendor\slick\fonts\slick.ttf" />
+    <Content Include="Content\boot bubble\vendor\slick\fonts\slick.woff" />
+    <Content Include="Content\boot bubble\vendor\slick\slick-theme.less" />
+    <Content Include="Content\boot bubble\vendor\slick\slick-theme.scss" />
+    <Content Include="Content\boot bubble\vendor\slick\slick.less" />
+    <Content Include="Content\boot bubble\vendor\slick\slick.scss" />
+    <None Include="Properties\PublishProfiles\PreOwned.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\notify.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\ManageUser\RTOcreate.cshtml" />
+    <Content Include="Views\ManageUser\PoliceCreate.cshtml" />
+    <Content Include="Views\ManageUser\InsuranceCreate.cshtml" />
+    <Content Include="Views\ManageUser\PollutionCreate.cshtml" />
+    <Content Include="Views\ManageUser\ServiceCreate.cshtml" />
+    <Content Include="Views\VehicleReg\RTOVehicleRegDetails.cshtml" />
+    <Content Include="Views\InsuranceReg\InsuranceVehicleReg.cshtml" />
+    <Content Include="Views\PollutionReg\PollutionVehicleReg.cshtml" />
+    <Content Include="Views\ServiceReg\ServiceVehicleReg.cshtml" />
+    <Content Include="Views\PoliceComplientReg\PoliceComplientVehicleReg.cshtml" />
+    <Content Include="Views\VehicleReg\listRTO.cshtml" />
+    <Content Include="Views\VehicleReg\listRTOdetails.cshtml" />
+    <Content Include="Views\VehicleReg\editRTOdetails.cshtml" />
+    <Content Include="Views\InsuranceReg\listInsurance.cshtml" />
+    <Content Include="Views\InsuranceReg\listInsurancedetails.cshtml" />
+    <Content Include="Views\InsuranceReg\editInsurancedetails.cshtml" />
+    <Content Include="Views\PollutionReg\listPollution.cshtml" />
+    <Content Include="Views\PollutionReg\listPollutiondetails.cshtml" />
+    <Content Include="Views\PollutionReg\editPollutionsdetails.cshtml" />
+    <Content Include="Views\ServiceReg\listService.cshtml" />
+    <Content Include="Views\ServiceReg\listServicedetails.cshtml" />
+    <Content Include="Views\ServiceReg\editServicedetails.cshtml" />
+    <Content Include="Views\PoliceComplientReg\listPolice.cshtml" />
+    <Content Include="Views\PoliceComplientReg\listPolicedetails.cshtml" />
+    <Content Include="Views\PoliceComplientReg\editPolicedetails.cshtml" />
+    <Content Include="Views\Admin\AdminHome.cshtml" />
+    <Content Include="Views\Admin\AddCity.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Shared\_LayoutRTO.cshtml" />
+    <Content Include="Views\Shared\_LayoutPolice.cshtml" />
+    <Content Include="Views\Shared\_LayoutInsurance.cshtml" />
+    <Content Include="Views\Shared\_LayoutService.cshtml" />
+    <Content Include="Views\Shared\_LayoutPollution.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Admin\listRTOreg.cshtml" />
+    <Content Include="Views\Admin\Approve.cshtml" />
+    <Content Include="Views\ManageUser\Login.cshtml" />
+    <Content Include="Views\Home\feedback.cshtml" />
+    <Content Include="Views\Admin\listfeedback.cshtml" />
+    <Content Include="Views\Admin\Reject.cshtml" />
+    <Content Include="Views\Admin\listPolicereg.cshtml" />
+    <Content Include="Views\Admin\listInsurancereg.cshtml" />
+    <Content Include="Views\Admin\listPollutionreg.cshtml" />
+    <Content Include="Views\Admin\listServicereg.cshtml" />
+    <Content Include="Views\Admin\listDistrict.cshtml" />
+    <Content Include="Views\Admin\AddDistrict.cshtml" />
+    <Content Include="Views\Admin\listCity.cshtml" />
+    <Content Include="Views\VehicleReg\RTOhome.cshtml" />
+    <Content Include="Views\VehicleReg\rtoname.cshtml" />
+    <Content Include="Views\VehicleReg\rtomailid.cshtml" />
+    <Content Include="Views\ManageUser\forgetpwd.cshtml" />
+    <Content Include="Views\ServiceReg\ServiceHome.cshtml" />
+    <Content Include="Views\ServiceReg\serviceusername.cshtml" />
+    <Content Include="Views\ServiceReg\servicemailid.cshtml" />
+    <Content Include="Views\PollutionReg\PollutionHome.cshtml" />
+    <Content Include="Views\PollutionReg\pollutionname.cshtml" />
+    <Content Include="Views\PollutionReg\pollutionmailid.cshtml" />
+    <Content Include="Views\PoliceComplientReg\PoliceHome.cshtml" />
+    <Content Include="Views\PoliceComplientReg\policename.cshtml" />
+    <Content Include="Views\PoliceComplientReg\policemailid.cshtml" />
+    <Content Include="Views\InsuranceReg\insurancename.cshtml" />
+    <Content Include="Views\InsuranceReg\insurancemailid.cshtml" />
+    <Content Include="Views\InsuranceReg\InsuranceHome.cshtml" />
+    <Content Include="Views\Home\usersearch.cshtml" />
+    <Content Include="Views\Home\userregdisplay.cshtml" />
+    <Content Include="Views\Admin\adminname.cshtml" />
+    <Content Include="Views\Shared\_LayoutUser.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\boot normal\vendor\font-awesome\less\" />
+    <Folder Include="Content\boot normal\vendor\font-awesome\scss\" />
+    <Folder Include="Content\formpic\" />
+    <Folder Include="Content\image\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>65046</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:65046/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

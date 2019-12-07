@@ -1,0 +1,101 @@
+﻿@model PreOwnedVehicle.Models.tblreg
+
+@{
+    ViewBag.Title = "Insurance-Pre-Own Vehicle Tracking Details";
+    Layout = null;
+}
+<style>
+    .boxtxt {
+        border-radius: 20px;
+    }
+
+        .boxtxt:focus {
+            border-color: #007bff;
+        }
+</style>
+@using (Html.BeginForm("InsuranceCreate", "ManageUser", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="modal fade" id="reginsurancemodal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="login px-4 mx-auto mw-100">
+                        <h5 class="text-center mb-4">Insurance Register Now</h5>
+                        <form>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.username, "Username", htmlAttributes: new { @class = "mb-2" })
+                                <div>
+                                    @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control boxtxt", required = "required" } })
+                                    @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.password, "Password", htmlAttributes: new { @class = "mb-2" })
+                                <div>
+                                    @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control boxtxt", required = "required" } })
+                                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.confirmpassword, "Confirm Password", htmlAttributes: new { @class = "mb-2" })
+                                <div>
+                                    @Html.EditorFor(model => model.confirmpassword, new { htmlAttributes = new { @class = "form-control boxtxt", required = "required" } })
+                                    @Html.ValidationMessageFor(model => model.confirmpassword, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.address, "Address", htmlAttributes: new { @class = "mb-2" })
+                                <div>
+                                    @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control boxtxt", required = "required" } })
+                                    @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.districtid, "District", htmlAttributes: new { @class = "mb-2" })
+                                <div>
+                                    @Html.DropDownList("districtid", new SelectList(ViewBag.dist, "districtid", "districtname"), "--select--", htmlAttributes: new { @class = "form-control boxtxt", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.districtid, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.cityid, "City", htmlAttributes: new { @class = "mb-2" })
+                                <div>
+                                    @Html.DropDownList("cityid", new SelectList(ViewBag.cit, "cityid", "cityname"), "--select--", htmlAttributes: new { @class = "form-control boxtxt", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.cityid, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.email, "Email", htmlAttributes: new { @class = "mb-2" })
+                                <div>
+                                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control boxtxt", required = "required" } })
+                                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary submit mb-4 boxtxt">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+<script>
+    if ('@TempData["dataalready"]' != "") {
+        alert('@TempData["dataalready"]');
+        window.location.href = '@Url.Action("Index","Home")';
+    }
+</script>

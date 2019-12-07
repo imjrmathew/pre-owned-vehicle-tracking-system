@@ -1,0 +1,145 @@
+﻿@model IEnumerable<PreOwnedVehicle.Models.tblfeedback>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+        .butsml {
+        padding: 0px;
+        margin: 0px;
+        border-radius: 20px;
+        width: 90px;
+        height: 25px;
+        color: white;
+        background-color: #b2004c;
+        border: 2px solid #b2004c;
+        outline: none;
+        transition: .5s;
+        font-size: 13px;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: middle;
+    }
+        .butsml:hover {
+            background-color: white;
+            color: #b2004c;
+            border: 2px solid #b2004c;
+        }
+</style>
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+
+    function readfeed(passid) {
+        $.ajax({
+            url: '/Admin/readfeedback',
+            type: "POST",
+            data: { id: passid },
+            dataType: "JSON",
+            success: function (rs) {
+                if (rs.result) {
+                    window.location.reload();
+                }
+            },
+            error: function () {
+                alert("Invalid");
+            }
+        });
+    };
+</script>
+
+<div class="content-inner">
+    <!-- Page Header-->
+    <header class="page-header">
+        <div class="container-fluid">
+            <h2 class="no-margin-bottom">Welcome, @{Html.RenderAction("adminname", "Admin");}</h2>
+        </div>
+    </header>
+    <!-- Breadcrumb-->
+    <div class="breadcrumb-holder container-fluid">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="AdminHome">Home</a></li>
+            <li class="breadcrumb-item active">Feedback View </li>
+        </ul>
+    </div>
+    <section class="tables">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-close">
+                            <div class="dropdown">
+                                <button type="button" id="closeCard3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                <div aria-labelledby="closeCard3" class="dropdown-menu dropdown-menu-right has-shadow">
+                                <a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-header d-flex align-items-center">
+                            <h3 class="h4">Feedbacks</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="col-lg-5 float-right">
+                                <div class="form-group-material">
+                                    <input id="myInput" type="text" required class="input-material">
+                                    <label for="myInput" class="label-material" style="font-weight:bold">Search</label>
+                                </div>
+                            </div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>
+                                                    Name
+                                                </th>
+                                                <th>
+                                                    Email
+                                                </th>
+                                                <th>
+                                                    Subject
+                                                </th>
+                                                <th>
+                                                    Feedback
+                                                </th>
+                                                <th>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="myTable">
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.feedname)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.email)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.subject)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.feedback)
+                                                    </td>
+                                                    <td>
+                                                        <input type="submit" class="fa fa-check-square-o butsml" value="Read"  onclick="readfeed(@item.feedid)" />
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

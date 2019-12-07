@@ -1,0 +1,122 @@
+﻿@using PagedList.Mvc
+@using PagedList
+@model IPagedList<PreOwnedVehicle.Models.tblvehiclereg>
+
+@{
+    ViewBag.Title = "List RTO";
+    Layout = "~/Views/Shared/_LayoutRTO.cshtml";
+}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+ </script>
+<style>
+    .searchbackground{
+        border-radius:4px;
+        background-color:transparent;
+        border-bottom:2px solid #808080;
+        width:300px;
+    }
+        .searchbackground:focus{
+        border-radius:4px;
+        background-color:transparent;
+        border-bottom:2px solid #3d51b0;
+        width:300px;
+    }
+        .pagin{
+            display:block;
+        }
+</style>
+<div class="row">
+    <div class="col-md-12">
+        <!-- DATA TABLE -->
+        <h3 class="title-5 m-b-35">Registered Vehicles</h3>
+        <div class="table-data__tool">
+            <div class="table-data__tool-left">
+                <div class="rs-select2--light rs-select2--sm">
+                    <div class="form-group-material">
+                        <input id="myInput" type="text" placeholder="Search" required class="input-material searchbackground">
+                    </div>
+                </div>
+            </div>
+            <div class="table-data__tool-right">
+                 <a href="RTOVehicleRegDetails" class="au-btn au-btn-icon au-btn--green au-btn--small"><i class="zmdi zmdi-plus"></i>add item</a>
+            </div>
+        </div>
+        </div>
+        <div class="table-responsive table-responsive-data2">
+            <table class="table table-data2">
+                <thead>
+                    <tr>
+                        <th style="padding-left:6px;">
+                            Vehicle No
+                        </th>
+                        <th>
+                            Reg Owner Name
+                        </th>
+                        <th>
+                            Address
+                        </th>
+                        <th>
+                            Mobile
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Dealer Name
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="myTable">
+                    @foreach (var item in Model)
+                    {
+                        <tr class="tr-shadow">
+                            <td style="padding-left:6px;" class="desc">
+                                @Html.DisplayFor(modelItem => item.vehicleid)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.regownername)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.permanentaddr)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.mobile)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.briefdescription)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.dealername)
+                            </td>
+                            <td>
+                                <div class="table-data-feature">
+                                    <a href="@Url.Action("editRTOdetails", "VehicleReg", new { id = item.regid })" class="item" data-toggle="tooltip" data-placement="top" title="Edit" style="background-color:#ff704d"><i class="zmdi zmdi-edit" style="color:white;"></i></a>
+                                    <a href="@Url.Action("listRTOdetails", "VehicleReg", new { id = item.regid })" class="item" data-toggle="tooltip" data-placement="top" title="More" style="background-color:#007bff"><i class="zmdi zmdi-more" style="color:white;"></i></a>
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="spacer"></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+<br />
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<div class="PagedList">
+    @Html.PagedListPager(Model, page => Url.Action("listRTO", new { page }), PagedListRenderOptions.TwitterBootstrapPager)
+</div>
+<br /><br />
+

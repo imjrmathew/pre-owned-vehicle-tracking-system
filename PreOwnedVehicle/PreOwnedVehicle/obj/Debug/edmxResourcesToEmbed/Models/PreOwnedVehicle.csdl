@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="preownedvehicleModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblcity">
+    <Key>
+      <PropertyRef Name="cityid" />
+    </Key>
+    <Property Name="cityid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="districtid" Type="Int32" />
+    <Property Name="cityname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbldistrict" Relationship="Self.FK_tblcity_tbldistrict" FromRole="tblcity" ToRole="tbldistrict" />
+    <NavigationProperty Name="tblregs" Relationship="Self.FK_tblreg_tblcity" FromRole="tblcity" ToRole="tblreg" />
+    <NavigationProperty Name="tblvehicleregs" Relationship="Self.FK_tblvehiclereg_tblcity" FromRole="tblcity" ToRole="tblvehiclereg" />
+  </EntityType>
+  <EntityType Name="tbldistrict">
+    <Key>
+      <PropertyRef Name="districtid" />
+    </Key>
+    <Property Name="districtid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="districtname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblcities" Relationship="Self.FK_tblcity_tbldistrict" FromRole="tbldistrict" ToRole="tblcity" />
+    <NavigationProperty Name="tblregs" Relationship="Self.FK_tblreg_tbldistrict" FromRole="tbldistrict" ToRole="tblreg" />
+  </EntityType>
+  <EntityType Name="tbllogin">
+    <Key>
+      <PropertyRef Name="loginid" />
+    </Key>
+    <Property Name="loginid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="roleid" Type="Int32" />
+    <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="isdeleted" Type="Boolean" />
+    <Property Name="status" Type="Boolean" />
+    <NavigationProperty Name="tblregs" Relationship="Self.FK_tblreg_tbllogin" FromRole="tbllogin" ToRole="tblreg" />
+    <NavigationProperty Name="tblvehicleregs" Relationship="Self.FK_tblvehiclereg_tbllogin" FromRole="tbllogin" ToRole="tblvehiclereg" />
+    <NavigationProperty Name="tblinsurances" Relationship="preownedvehicleModel.FK_tblinsurance_tbllogin" FromRole="tbllogin" ToRole="tblinsurance" />
+    <NavigationProperty Name="tblpolicecomplaints" Relationship="preownedvehicleModel.FK_tblpolicecomplaint_tbllogin" FromRole="tbllogin" ToRole="tblpolicecomplaint" />
+    <NavigationProperty Name="tblpollutions" Relationship="preownedvehicleModel.FK_tblpollution_tbllogin" FromRole="tbllogin" ToRole="tblpollution" />
+    <NavigationProperty Name="tblservices" Relationship="preownedvehicleModel.FK_tblservice_tbllogin" FromRole="tbllogin" ToRole="tblservice" />
+  </EntityType>
+  <EntityType Name="tblreg">
+    <Key>
+      <PropertyRef Name="regid" />
+    </Key>
+    <Property Name="regid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="loginid" Type="Int32" />
+    <Property Name="cityid" Type="Int32" />
+    <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="districtid" Type="Int32" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblcity" Relationship="Self.FK_tblreg_tblcity" FromRole="tblreg" ToRole="tblcity" />
+    <NavigationProperty Name="tbldistrict" Relationship="Self.FK_tblreg_tbldistrict" FromRole="tblreg" ToRole="tbldistrict" />
+    <NavigationProperty Name="tbllogin" Relationship="Self.FK_tblreg_tbllogin" FromRole="tblreg" ToRole="tbllogin" />
+  </EntityType>
+  <EntityType Name="tblvehiclereg">
+    <Key>
+      <PropertyRef Name="regid" />
+    </Key>
+    <Property Name="regid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="loginid" Type="Int32" />
+    <Property Name="vehicleid" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cityid" Type="Int32" />
+    <Property Name="briefdescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="dealername" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="makername" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="regownername" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="permanentaddr" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="classfvehicle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="typeofbody" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="chassisno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="engineno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fuel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="color" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="yearofmanf" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="seatcapacity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="tax" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="taxpaidon" Type="DateTime" Precision="0" />
+    <Property Name="file1" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="mobile" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblcity" Relationship="Self.FK_tblvehiclereg_tblcity" FromRole="tblvehiclereg" ToRole="tblcity" />
+    <NavigationProperty Name="tbllogin" Relationship="Self.FK_tblvehiclereg_tbllogin" FromRole="tblvehiclereg" ToRole="tbllogin" />
+    <NavigationProperty Name="tblinsurances" Relationship="preownedvehicleModel.FK_tblinsurance_tblvehiclereg" FromRole="tblvehiclereg" ToRole="tblinsurance" />
+    <NavigationProperty Name="tblpolicecomplaints" Relationship="preownedvehicleModel.FK_tblpolicecomplaint_tblvehiclereg" FromRole="tblvehiclereg" ToRole="tblpolicecomplaint" />
+    <NavigationProperty Name="tblpollutions" Relationship="preownedvehicleModel.FK_tblpollution_tblvehiclereg" FromRole="tblvehiclereg" ToRole="tblpollution" />
+    <NavigationProperty Name="tblservices" Relationship="preownedvehicleModel.FK_tblservice_tblvehiclereg" FromRole="tblvehiclereg" ToRole="tblservice" />
+  </EntityType>
+  <Association Name="FK_tblcity_tbldistrict">
+    <End Role="tbldistrict" Type="Self.tbldistrict" Multiplicity="0..1" />
+    <End Role="tblcity" Type="Self.tblcity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbldistrict">
+        <PropertyRef Name="districtid" />
+      </Principal>
+      <Dependent Role="tblcity">
+        <PropertyRef Name="districtid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblreg_tblcity">
+    <End Role="tblcity" Type="Self.tblcity" Multiplicity="0..1" />
+    <End Role="tblreg" Type="Self.tblreg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblcity">
+        <PropertyRef Name="cityid" />
+      </Principal>
+      <Dependent Role="tblreg">
+        <PropertyRef Name="cityid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblvehiclereg_tblcity">
+    <End Role="tblcity" Type="Self.tblcity" Multiplicity="0..1" />
+    <End Role="tblvehiclereg" Type="Self.tblvehiclereg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblcity">
+        <PropertyRef Name="cityid" />
+      </Principal>
+      <Dependent Role="tblvehiclereg">
+        <PropertyRef Name="cityid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblreg_tbldistrict">
+    <End Role="tbldistrict" Type="Self.tbldistrict" Multiplicity="0..1" />
+    <End Role="tblreg" Type="Self.tblreg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbldistrict">
+        <PropertyRef Name="districtid" />
+      </Principal>
+      <Dependent Role="tblreg">
+        <PropertyRef Name="districtid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblreg_tbllogin">
+    <End Role="tbllogin" Type="Self.tbllogin" Multiplicity="0..1" />
+    <End Role="tblreg" Type="Self.tblreg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbllogin">
+        <PropertyRef Name="loginid" />
+      </Principal>
+      <Dependent Role="tblreg">
+        <PropertyRef Name="loginid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblvehiclereg_tbllogin">
+    <End Role="tbllogin" Type="Self.tbllogin" Multiplicity="0..1" />
+    <End Role="tblvehiclereg" Type="Self.tblvehiclereg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbllogin">
+        <PropertyRef Name="loginid" />
+      </Principal>
+      <Dependent Role="tblvehiclereg">
+        <PropertyRef Name="loginid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="preownedvehicleEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblcities" EntityType="Self.tblcity" />
+    <EntitySet Name="tbldistricts" EntityType="Self.tbldistrict" />
+    <EntitySet Name="tbllogins" EntityType="Self.tbllogin" />
+    <EntitySet Name="tblregs" EntityType="Self.tblreg" />
+    <EntitySet Name="tblvehicleregs" EntityType="Self.tblvehiclereg" />
+    <AssociationSet Name="FK_tblcity_tbldistrict" Association="Self.FK_tblcity_tbldistrict">
+      <End Role="tbldistrict" EntitySet="tbldistricts" />
+      <End Role="tblcity" EntitySet="tblcities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblreg_tblcity" Association="Self.FK_tblreg_tblcity">
+      <End Role="tblcity" EntitySet="tblcities" />
+      <End Role="tblreg" EntitySet="tblregs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblvehiclereg_tblcity" Association="Self.FK_tblvehiclereg_tblcity">
+      <End Role="tblcity" EntitySet="tblcities" />
+      <End Role="tblvehiclereg" EntitySet="tblvehicleregs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblreg_tbldistrict" Association="Self.FK_tblreg_tbldistrict">
+      <End Role="tbldistrict" EntitySet="tbldistricts" />
+      <End Role="tblreg" EntitySet="tblregs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblreg_tbllogin" Association="Self.FK_tblreg_tbllogin">
+      <End Role="tbllogin" EntitySet="tbllogins" />
+      <End Role="tblreg" EntitySet="tblregs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblvehiclereg_tbllogin" Association="Self.FK_tblvehiclereg_tbllogin">
+      <End Role="tbllogin" EntitySet="tbllogins" />
+      <End Role="tblvehiclereg" EntitySet="tblvehicleregs" />
+    </AssociationSet>
+    <EntitySet Name="tblfeedbacks" EntityType="preownedvehicleModel.tblfeedback" />
+    <EntitySet Name="tblinsurances" EntityType="preownedvehicleModel.tblinsurance" />
+    <EntitySet Name="tblpolicecomplaints" EntityType="preownedvehicleModel.tblpolicecomplaint" />
+    <EntitySet Name="tblpollutions" EntityType="preownedvehicleModel.tblpollution" />
+    <EntitySet Name="tblservices" EntityType="preownedvehicleModel.tblservice" />
+    <AssociationSet Name="FK_tblinsurance_tbllogin" Association="preownedvehicleModel.FK_tblinsurance_tbllogin">
+      <End Role="tbllogin" EntitySet="tbllogins" />
+      <End Role="tblinsurance" EntitySet="tblinsurances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblinsurance_tblvehiclereg" Association="preownedvehicleModel.FK_tblinsurance_tblvehiclereg">
+      <End Role="tblvehiclereg" EntitySet="tblvehicleregs" />
+      <End Role="tblinsurance" EntitySet="tblinsurances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblpolicecomplaint_tbllogin" Association="preownedvehicleModel.FK_tblpolicecomplaint_tbllogin">
+      <End Role="tbllogin" EntitySet="tbllogins" />
+      <End Role="tblpolicecomplaint" EntitySet="tblpolicecomplaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblpollution_tbllogin" Association="preownedvehicleModel.FK_tblpollution_tbllogin">
+      <End Role="tbllogin" EntitySet="tbllogins" />
+      <End Role="tblpollution" EntitySet="tblpollutions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblservice_tbllogin" Association="preownedvehicleModel.FK_tblservice_tbllogin">
+      <End Role="tbllogin" EntitySet="tbllogins" />
+      <End Role="tblservice" EntitySet="tblservices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblpolicecomplaint_tblvehiclereg" Association="preownedvehicleModel.FK_tblpolicecomplaint_tblvehiclereg">
+      <End Role="tblvehiclereg" EntitySet="tblvehicleregs" />
+      <End Role="tblpolicecomplaint" EntitySet="tblpolicecomplaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblpollution_tblvehiclereg" Association="preownedvehicleModel.FK_tblpollution_tblvehiclereg">
+      <End Role="tblvehiclereg" EntitySet="tblvehicleregs" />
+      <End Role="tblpollution" EntitySet="tblpollutions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblservice_tblvehiclereg" Association="preownedvehicleModel.FK_tblservice_tblvehiclereg">
+      <End Role="tblvehiclereg" EntitySet="tblvehicleregs" />
+      <End Role="tblservice" EntitySet="tblservices" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tblfeedback">
+    <Key>
+      <PropertyRef Name="feedid" />
+    </Key>
+    <Property Name="feedid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="feedback" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="feedname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="subject" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="isread" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tblinsurance">
+    <Key>
+      <PropertyRef Name="insuranceid" />
+    </Key>
+    <Property Name="insuranceid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="loginid" Type="Int32" />
+    <Property Name="regid" Type="Int32" />
+    <Property Name="amount" Type="Double" />
+    <Property Name="renewdate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="tbllogin" Relationship="preownedvehicleModel.FK_tblinsurance_tbllogin" FromRole="tblinsurance" ToRole="tbllogin" />
+    <NavigationProperty Name="tblvehiclereg" Relationship="preownedvehicleModel.FK_tblinsurance_tblvehiclereg" FromRole="tblinsurance" ToRole="tblvehiclereg" />
+  </EntityType>
+  <EntityType Name="tblpolicecomplaint">
+    <Key>
+      <PropertyRef Name="policecompliantid" />
+    </Key>
+    <Property Name="policecompliantid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="regid" Type="Int32" />
+    <Property Name="details" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="loginid" Type="Int32" />
+    <NavigationProperty Name="tbllogin" Relationship="preownedvehicleModel.FK_tblpolicecomplaint_tbllogin" FromRole="tblpolicecomplaint" ToRole="tbllogin" />
+    <NavigationProperty Name="tblvehiclereg" Relationship="preownedvehicleModel.FK_tblpolicecomplaint_tblvehiclereg" FromRole="tblpolicecomplaint" ToRole="tblvehiclereg" />
+  </EntityType>
+  <EntityType Name="tblpollution">
+    <Key>
+      <PropertyRef Name="pollutionid" />
+    </Key>
+    <Property Name="pollutionid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="loginid" Type="Int32" />
+    <Property Name="regid" Type="Int32" />
+    <Property Name="renewdate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="tbllogin" Relationship="preownedvehicleModel.FK_tblpollution_tbllogin" FromRole="tblpollution" ToRole="tbllogin" />
+    <NavigationProperty Name="tblvehiclereg" Relationship="preownedvehicleModel.FK_tblpollution_tblvehiclereg" FromRole="tblpollution" ToRole="tblvehiclereg" />
+  </EntityType>
+  <EntityType Name="tblservice">
+    <Key>
+      <PropertyRef Name="serviceid" />
+    </Key>
+    <Property Name="serviceid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="loginid" Type="Int32" />
+    <Property Name="regid" Type="Int32" />
+    <Property Name="renewdate" Type="DateTime" Precision="0" />
+    <Property Name="details" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbllogin" Relationship="preownedvehicleModel.FK_tblservice_tbllogin" FromRole="tblservice" ToRole="tbllogin" />
+    <NavigationProperty Name="tblvehiclereg" Relationship="preownedvehicleModel.FK_tblservice_tblvehiclereg" FromRole="tblservice" ToRole="tblvehiclereg" />
+  </EntityType>
+  <Association Name="FK_tblinsurance_tbllogin">
+    <End Type="preownedvehicleModel.tbllogin" Role="tbllogin" Multiplicity="0..1" />
+    <End Type="preownedvehicleModel.tblinsurance" Role="tblinsurance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbllogin">
+        <PropertyRef Name="loginid" />
+      </Principal>
+      <Dependent Role="tblinsurance">
+        <PropertyRef Name="loginid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblinsurance_tblvehiclereg">
+    <End Type="preownedvehicleModel.tblvehiclereg" Role="tblvehiclereg" Multiplicity="0..1" />
+    <End Type="preownedvehicleModel.tblinsurance" Role="tblinsurance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblvehiclereg">
+        <PropertyRef Name="regid" />
+      </Principal>
+      <Dependent Role="tblinsurance">
+        <PropertyRef Name="regid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblpolicecomplaint_tbllogin">
+    <End Type="preownedvehicleModel.tbllogin" Role="tbllogin" Multiplicity="0..1" />
+    <End Type="preownedvehicleModel.tblpolicecomplaint" Role="tblpolicecomplaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbllogin">
+        <PropertyRef Name="loginid" />
+      </Principal>
+      <Dependent Role="tblpolicecomplaint">
+        <PropertyRef Name="loginid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblpollution_tbllogin">
+    <End Type="preownedvehicleModel.tbllogin" Role="tbllogin" Multiplicity="0..1" />
+    <End Type="preownedvehicleModel.tblpollution" Role="tblpollution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbllogin">
+        <PropertyRef Name="loginid" />
+      </Principal>
+      <Dependent Role="tblpollution">
+        <PropertyRef Name="loginid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblservice_tbllogin">
+    <End Type="preownedvehicleModel.tbllogin" Role="tbllogin" Multiplicity="0..1" />
+    <End Type="preownedvehicleModel.tblservice" Role="tblservice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbllogin">
+        <PropertyRef Name="loginid" />
+      </Principal>
+      <Dependent Role="tblservice">
+        <PropertyRef Name="loginid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblpolicecomplaint_tblvehiclereg">
+    <End Type="preownedvehicleModel.tblvehiclereg" Role="tblvehiclereg" Multiplicity="0..1" />
+    <End Type="preownedvehicleModel.tblpolicecomplaint" Role="tblpolicecomplaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblvehiclereg">
+        <PropertyRef Name="regid" />
+      </Principal>
+      <Dependent Role="tblpolicecomplaint">
+        <PropertyRef Name="regid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblpollution_tblvehiclereg">
+    <End Type="preownedvehicleModel.tblvehiclereg" Role="tblvehiclereg" Multiplicity="0..1" />
+    <End Type="preownedvehicleModel.tblpollution" Role="tblpollution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblvehiclereg">
+        <PropertyRef Name="regid" />
+      </Principal>
+      <Dependent Role="tblpollution">
+        <PropertyRef Name="regid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblservice_tblvehiclereg">
+    <End Type="preownedvehicleModel.tblvehiclereg" Role="tblvehiclereg" Multiplicity="0..1" />
+    <End Type="preownedvehicleModel.tblservice" Role="tblservice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblvehiclereg">
+        <PropertyRef Name="regid" />
+      </Principal>
+      <Dependent Role="tblservice">
+        <PropertyRef Name="regid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

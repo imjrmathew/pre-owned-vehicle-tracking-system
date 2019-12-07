@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin | Pre-Own Vehicle Tracking Details</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="all,follow">
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="~/Content/boot normal/vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="~/Content/boot normal/vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="~/Content/boot normal/css/fontastic.css">
+    <!-- Google fonts - Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+
+    @*<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">*@
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="~/Content/boot normal/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="~/Content/boot normal/css/custom.css">
+    <link href="~/Content/newstrap/img/favicon.png" rel="icon">
+    <link href="~/Content/newstrap/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="~/Content/aboutusi.css" rel="stylesheet" />
+    <script>
+
+        function profile() {
+            $.ajax({
+                url: '/Admin/EditPro',
+                type: "GET",
+                dataType: "JSON",
+                success: function (model) {
+                    $("#loginid").val(model.lid);
+                    $("#username").val(model.uname);
+                    $("#pwd").val(model.pwd);
+
+                    $("#editprofile").modal("show");
+                },
+                error: function () {
+                    alert("Invalid");
+                }
+            });
+        };
+
+        function EditPro() {
+            var Data = $("#formsubmit").serialize();
+            $.ajax({
+                url: '/Admin/EditProfile',
+                type: "POST",
+                data: Data,
+                dataType: "JSON",
+                success: function (model) {
+                    if (model.result) {
+                        window.location.reload();
+                        $("#editprofile").modal("hide");
+                    }
+                },
+                error: function () {
+                    alert("Invalid");
+                }
+            });
+
+        }
+
+            
+    </script>
+    <style>
+        .buttonlg {
+            border-radius: 20px;
+            color: white;
+            background-color: #007bff;
+            border: 2px solid #007bff;
+            outline: none;
+            transition: .5s;
+        }
+
+            .buttonlg:hover {
+                background-color: white;
+                color: #007bff;
+                border: 2px solid #007bff;
+            }
+
+        .districtxt {
+            border-radius: 20px;
+        }
+
+            .districtxt:focus {
+                border-color: #007bff;
+            }
+
+
+        .butsml {
+            padding: 0px;
+            margin: 0px;
+            border-radius: 20px;
+            width: 90px;
+            height: 25px;
+            color: white;
+            background-color: #007bff;
+            border: 2px solid #007bff;
+            outline: none;
+            transition: .5s;
+            font-size: 13px;
+            font-weight: bold;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+            .butsml:hover {
+                background-color: white;
+                color: #007bff;
+                border: 2px solid #007bff;
+            }
+    </style>
+
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <nav class="navbar">
+                <!-- Search Box-->
+                <div class="search-box">
+                    <button class="dismiss"><i class="icon-close"></i></button>
+                    <form id="searchForm" action="#" role="search">
+                        <input type="search" placeholder="What are you looking for..." class="form-control">
+                    </form>
+                </div>
+                <div class="container-fluid">
+                    <div class="navbar-holder d-flex align-items-center justify-content-between">
+                        <!-- Navbar Header-->
+                        <div class="navbar-header">
+                            <!-- Navbar Brand --><a href="AdminHome" class="navbar-brand d-none d-sm-inline-block">
+                                <div class="brand-text d-none d-lg-inline-block">Pre-Own Vehicle <span style="color:#007bff"><strong>Details</strong></span></div>
+                                <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>POVTD</strong></div>
+                            </a>
+                            <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
+                        </div>
+                        <!-- Navbar Menu -->
+                        <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                            <!-- Search-->
+                            <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
+                            <!-- Logout    -->
+                            <li class="nav-item"><a href="" data-toggle="modal" data-target="#logoutModal" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="page-content d-flex align-items-stretch">
+            <nav class="side-navbar">
+                <!-- Sidebar Header-->
+                <div class="sidebar-header d-flex align-items-center" onclick="profile()">
+                    <div class="avatar"><img src="~/Content/boot normal/img/FB-1000x563.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                    <div class="title">
+                        <h1 class="h4">@{Html.RenderAction("adminname", "Admin");}</h1>
+                        <p>Web Designer</p>
+                    </div>
+                </div>
+                <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+                <ul class="list-unstyled" id="main">
+                    <li class="active"><a href="AdminHome"> <i class="icon-home"></i>Dashboard </a></li>
+                    <li>
+                        <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse" id="regist"> <i class="icon-interface-windows"></i>Registered Users </a>
+                        <ul id="exampledropdownDropdown" class="collapse list-unstyled">
+                            <li><a href="listRTOreg">RTO</a></li>
+                            <li><a href="listPolicereg">Police</a></li>
+                            <li><a href="listInsurancereg">Insurance</a></li>
+                            <li><a href="listPollutionreg">PUC</a></li>
+                            <li><a href="listServicereg">Service</a></li>
+                        </ul>
+                    </li>
+                    <li class="clickfeed"><a href="listfeedback"> <i class="fa fa-check-square-o"></i><span style="margin-left:2px">Feedback View</span></a></li>
+                    <li><a href="listDistrict"> <i class="fa fa-map-marker"></i><span style="margin-left:7px">District</span></a></li>
+                    <li><a href="listCity"> <i class="fa fa-globe"></i><span style="margin-left:2px">City</span></a></li>
+                </ul>
+            </nav>
+           @RenderBody()
+        </div>
+ </div>
+
+    <footer class="footer bg-white shadow align-self-end py-3 px-xl-5 w-100">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-left text-primary">
+                    <p class="mb-2 mb-md-0" style="color:black;">Pre-Own Vehicle <span style="color:#007bff"><strong>Details</strong></span> &copy; 2019-2020</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="~/Home/Index">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- edit profile -->
+    <div class="modal fade" id="editprofile" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm role=" document">
+            <div class="modal-content" style="border-radius:10px;">
+                <div class="modal-header">
+                    <h4 class="modal-title">Hello, @{Html.RenderAction("adminname", "Admin");} </h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formsubmit">
+                        <div class="form-group">
+                            <div>
+                                <img src="~/Content/boot normal/img/FB-1000x563.jpg" alt="avatar" class="img-fluid rounded-circle" style="width:200px;height:200px;margin-left:30px;margin-right:30px;" />
+                                <h5 class="modal-title text-center">@{Html.RenderAction("adminname", "Admin");} </h5>
+                                <br />
+                            </div>
+                            @Html.Hidden("loginid", new { @id = "loginid" })
+                            @Html.Label("Username:", htmlAttributes: new { @class = "mb-2" })
+                            <div>
+                                @Html.Editor("username", new { htmlAttributes = new { @class = "form-control districtxt", @id = "username", required = "required" } })
+                            </div>
+                            @Html.Label("Password:", htmlAttributes: new { @class = "mb-2" })
+                            <div>
+                                <input type="password" name="password" class="form-control districtxt" id="pwd" required="required" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success submit buttonlg" onclick="EditPro()">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- JavaScript files-->
+        <script src="~/Content/boot normal/vendor/jquery/jquery.min.js"></script>
+        <script src="~/Content/boot normal/vendor/popper.js/umd/popper.min.js"> </script>
+        <script src="~/Content/boot normal/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="~/Content/boot normal/vendor/jquery.cookie/jquery.cookie.js"> </script>
+        <script src="~/Content/boot normal/vendor/chart.js/Chart.min.js"></script>
+        <script src="~/Content/boot normal/vendor/jquery-validation/jquery.validate.min.js"></script>
+        <script src="~/Content/boot normal/js/charts-home.js"></script>
+        <!-- Main File-->
+        <script src="~/Content/boot normal/js/front.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

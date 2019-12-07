@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eeb9229c38cc45f896893f12e055e256" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="preownedvehicleModel.tblcity" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="preownedvehicleModel.tbldistrict" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="preownedvehicleModel.tbllogin" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="preownedvehicleModel.tblreg" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="preownedvehicleModel.tblvehiclereg" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />
+        <AssociationConnector Association="preownedvehicleModel.FK_tblcity_tbldistrict" ManuallyRouted="false" />
+        <AssociationConnector Association="preownedvehicleModel.FK_tblreg_tblcity" ManuallyRouted="false" />
+        <AssociationConnector Association="preownedvehicleModel.FK_tblvehiclereg_tblcity" ManuallyRouted="false" />
+        <AssociationConnector Association="preownedvehicleModel.FK_tblreg_tbldistrict" ManuallyRouted="false" />
+        <AssociationConnector Association="preownedvehicleModel.FK_tblreg_tbllogin" ManuallyRouted="false" />
+        <AssociationConnector Association="preownedvehicleModel.FK_tblvehiclereg_tbllogin" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="preownedvehicleModel.tblfeedback" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="preownedvehicleModel.tblinsurance" Width="1.5" PointX="10.5" PointY="1" />
+        <EntityTypeShape EntityType="preownedvehicleModel.tblpolicecomplaint" Width="1.5" PointX="13.5" PointY="4.125" />
+        <EntityTypeShape EntityType="preownedvehicleModel.tblpollution" Width="1.5" PointX="10.5" PointY="4.125" />
+        <EntityTypeShape EntityType="preownedvehicleModel.tblservice" Width="1.5" PointX="10.5" PointY="7" />
+        <AssociationConnector Association="preownedvehicleModel.FK_tblinsurance_tbllogin" />
+        <AssociationConnector Association="preownedvehicleModel.FK_tblinsurance_tblvehiclereg" />
+        <AssociationConnector Association="preownedvehicleModel.FK_tblpolicecomplaint_tbllogin" />
+        <AssociationConnector Association="preownedvehicleModel.FK_tblpollution_tbllogin" />
+        <AssociationConnector Association="preownedvehicleModel.FK_tblservice_tbllogin" />
+        <AssociationConnector Association="preownedvehicleModel.FK_tblpolicecomplaint_tblvehiclereg" />
+        <AssociationConnector Association="preownedvehicleModel.FK_tblpollution_tblvehiclereg" />
+        <AssociationConnector Association="preownedvehicleModel.FK_tblservice_tblvehiclereg" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

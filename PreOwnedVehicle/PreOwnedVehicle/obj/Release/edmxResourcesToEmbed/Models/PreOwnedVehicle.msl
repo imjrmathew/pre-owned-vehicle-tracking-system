@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="preownedvehicleModelStoreContainer" CdmEntityContainer="preownedvehicleEntities">
+    <EntitySetMapping Name="tblcities">
+      <EntityTypeMapping TypeName="preownedvehicleModel.tblcity">
+        <MappingFragment StoreEntitySet="tblcity">
+          <ScalarProperty Name="cityid" ColumnName="cityid" />
+          <ScalarProperty Name="districtid" ColumnName="districtid" />
+          <ScalarProperty Name="cityname" ColumnName="cityname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbldistricts">
+      <EntityTypeMapping TypeName="preownedvehicleModel.tbldistrict">
+        <MappingFragment StoreEntitySet="tbldistrict">
+          <ScalarProperty Name="districtid" ColumnName="districtid" />
+          <ScalarProperty Name="districtname" ColumnName="districtname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbllogins">
+      <EntityTypeMapping TypeName="preownedvehicleModel.tbllogin">
+        <MappingFragment StoreEntitySet="tbllogin">
+          <ScalarProperty Name="loginid" ColumnName="loginid" />
+          <ScalarProperty Name="roleid" ColumnName="roleid" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblregs">
+      <EntityTypeMapping TypeName="preownedvehicleModel.tblreg">
+        <MappingFragment StoreEntitySet="tblreg">
+          <ScalarProperty Name="regid" ColumnName="regid" />
+          <ScalarProperty Name="loginid" ColumnName="loginid" />
+          <ScalarProperty Name="cityid" ColumnName="cityid" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="districtid" ColumnName="districtid" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblvehicleregs">
+      <EntityTypeMapping TypeName="preownedvehicleModel.tblvehiclereg">
+        <MappingFragment StoreEntitySet="tblvehiclereg">
+          <ScalarProperty Name="regid" ColumnName="regid" />
+          <ScalarProperty Name="loginid" ColumnName="loginid" />
+          <ScalarProperty Name="vehicleid" ColumnName="vehicleid" />
+          <ScalarProperty Name="cityid" ColumnName="cityid" />
+          <ScalarProperty Name="briefdescription" ColumnName="briefdescription" />
+          <ScalarProperty Name="dealername" ColumnName="dealername" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="makername" ColumnName="makername" />
+          <ScalarProperty Name="regownername" ColumnName="regownername" />
+          <ScalarProperty Name="permanentaddr" ColumnName="permanentaddr" />
+          <ScalarProperty Name="classfvehicle" ColumnName="classfvehicle" />
+          <ScalarProperty Name="typeofbody" ColumnName="typeofbody" />
+          <ScalarProperty Name="chassisno" ColumnName="chassisno" />
+          <ScalarProperty Name="engineno" ColumnName="engineno" />
+          <ScalarProperty Name="fuel" ColumnName="fuel" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="yearofmanf" ColumnName="yearofmanf" />
+          <ScalarProperty Name="seatcapacity" ColumnName="seatcapacity" />
+          <ScalarProperty Name="tax" ColumnName="tax" />
+          <ScalarProperty Name="taxpaidon" ColumnName="taxpaidon" />
+          <ScalarProperty Name="file1" ColumnName="file1" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblfeedbacks">
+      <EntityTypeMapping TypeName="preownedvehicleModel.tblfeedback">
+        <MappingFragment StoreEntitySet="tblfeedback">
+          <ScalarProperty Name="isread" ColumnName="isread" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="feedname" ColumnName="feedname" />
+          <ScalarProperty Name="feedback" ColumnName="feedback" />
+          <ScalarProperty Name="feedid" ColumnName="feedid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblinsurances">
+      <EntityTypeMapping TypeName="preownedvehicleModel.tblinsurance">
+        <MappingFragment StoreEntitySet="tblinsurance">
+          <ScalarProperty Name="renewdate" ColumnName="renewdate" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="regid" ColumnName="regid" />
+          <ScalarProperty Name="loginid" ColumnName="loginid" />
+          <ScalarProperty Name="insuranceid" ColumnName="insuranceid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblpolicecomplaints">
+      <EntityTypeMapping TypeName="preownedvehicleModel.tblpolicecomplaint">
+        <MappingFragment StoreEntitySet="tblpolicecomplaint">
+          <ScalarProperty Name="loginid" ColumnName="loginid" />
+          <ScalarProperty Name="details" ColumnName="details" />
+          <ScalarProperty Name="regid" ColumnName="regid" />
+          <ScalarProperty Name="policecompliantid" ColumnName="policecompliantid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblpollutions">
+      <EntityTypeMapping TypeName="preownedvehicleModel.tblpollution">
+        <MappingFragment StoreEntitySet="tblpollution">
+          <ScalarProperty Name="renewdate" ColumnName="renewdate" />
+          <ScalarProperty Name="regid" ColumnName="regid" />
+          <ScalarProperty Name="loginid" ColumnName="loginid" />
+          <ScalarProperty Name="pollutionid" ColumnName="pollutionid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblservices">
+      <EntityTypeMapping TypeName="preownedvehicleModel.tblservice">
+        <MappingFragment StoreEntitySet="tblservice">
+          <ScalarProperty Name="details" ColumnName="details" />
+          <ScalarProperty Name="renewdate" ColumnName="renewdate" />
+          <ScalarProperty Name="regid" ColumnName="regid" />
+          <ScalarProperty Name="loginid" ColumnName="loginid" />
+          <ScalarProperty Name="serviceid" ColumnName="serviceid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

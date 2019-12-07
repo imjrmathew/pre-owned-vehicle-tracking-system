@@ -1,0 +1,59 @@
+﻿@model PreOwnedVehicle.Models.tblservice
+
+@{
+    ViewBag.Title = "listServicedetails";
+    Layout = "~/Views/Shared/_LayoutService.cshtml";
+}
+
+<h2>Service Details</h2>
+
+<div>
+    <h4>tblservice</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.serviceid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serviceid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.loginid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loginid)
+        </dd>*@
+
+        <dt>
+            Vehicle No
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblvehiclereg.vehicleid)
+        </dd>
+
+        <dt>
+            Renew Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.renewdate)
+        </dd>
+
+        <dt>
+            Details
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.details)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "editServicedetails", new { id = Model.serviceid }) |
+    @Html.ActionLink("Back to List", "listService")
+</p>

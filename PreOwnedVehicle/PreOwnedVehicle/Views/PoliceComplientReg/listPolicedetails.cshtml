@@ -1,0 +1,51 @@
+﻿@model PreOwnedVehicle.Models.tblpolicecomplaint
+
+@{
+    ViewBag.Title = "listPolicedetails";
+    Layout = "~/Views/Shared/_LayoutPolice.cshtml";
+}
+
+<h2>Police Complaint Details</h2>
+
+<div>
+    <h4>tblpolicecomplaint</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.policecompliantid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.policecompliantid)
+        </dd>*@
+
+        <dt>
+            Vehicle No
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblvehiclereg.vehicleid)
+        </dd>
+
+        <dt>
+            Details
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.details)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.loginid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loginid)
+        </dd>*@
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "editPolicedetails", new { id = Model.policecompliantid }) |
+    @Html.ActionLink("Back to List", "listPolice")
+</p>

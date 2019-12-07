@@ -1,0 +1,138 @@
+﻿@using PagedList.Mvc
+@using PagedList
+@model IPagedList<PreOwnedVehicle.Models.tblinsurance>
+
+@{
+    ViewBag.Title = "List Insurance";
+    Layout = "~/Views/Shared/_LayoutInsurance.cshtml";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+<style>
+    .searchbackground {
+        border-radius: 4px;
+        background-color: transparent;
+        border-bottom: 2px solid #808080;
+        width: 300px;
+    }
+
+        .searchbackground:focus {
+            border-radius: 4px;
+            background-color: transparent;
+            border-bottom: 2px solid #3d51b0;
+            width: 300px;
+        }
+
+    .pagin {
+        display: block;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- DATA TABLE -->
+        <h3 class="title-5 m-b-35">Insured Vehicles</h3>
+        <div class="table-data__tool">
+            <div class="table-data__tool-left">
+                <div class="rs-select2--light rs-select2--sm">
+                    <div class="form-group-material">
+                        <input id="myInput" type="text" placeholder="Search" required class="input-material searchbackground">
+                    </div>
+                </div>
+            </div>
+            <div class="table-data__tool-right">
+                <a href="InsuranceVehicleReg" class="au-btn au-btn-icon au-btn--green au-btn--small"><i class="zmdi zmdi-plus"></i>add item</a>
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive table-responsive-data2">
+        <table class="table table-data2">
+            <thead>
+                <tr style="padding-left:6px;">
+                    @*
+                        <th>
+                            @Html.DisplayNameFor(model => model.insuranceid)
+                        </th>*@
+                    @*
+                        <th>
+                            @Html.DisplayNameFor(model => model.loginid)
+                        </th>*@
+                    <th>
+                        Vehicle No
+                    </th>
+                    <th>
+                        Owner Name
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        Mobile
+                    </th>
+                    <th>
+                        Amount
+                    </th>
+                    <th>
+                        Renew Date
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody id="myTable">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.insuranceid)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.loginid)
+                            </td>*@
+                        <td style="padding-left:6px;" class="desc">
+                            @Html.DisplayFor(modelItem => item.tblvehiclereg.vehicleid)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tblvehiclereg.regownername)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tblvehiclereg.permanentaddr)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tblvehiclereg.mobile)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.amount)
+                        </td>
+                        <td>
+                            @Convert.ToString(string.Format("{0:dd/MM/yyyy}",item.renewdate))
+                            @*@Html.DisplayFor(modelItem => item.renewdate)*@
+                        </td>
+                        <td>
+                            <div class="table-data-feature">
+                                <a href="@Url.Action("editInsurancedetails", "InsuranceReg", new { id = item.insuranceid })" class="item" data-toggle="tooltip" data-placement="top" title="Edit" style="background-color:#ff704d"><i class="zmdi zmdi-edit" style="color:white;"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="spacer"></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<div class="PagedList">
+    @Html.PagedListPager(Model, page => Url.Action("listInsurance", new { page }), PagedListRenderOptions.TwitterBootstrapPager)
+</div>
+<br /><br />
+

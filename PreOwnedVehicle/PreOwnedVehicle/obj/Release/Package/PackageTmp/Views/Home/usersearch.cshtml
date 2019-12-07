@@ -1,0 +1,34 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("userregdisplay","Home",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+<form>
+    <div class="input-group">
+        @Html.Editor("vehicleid", new { htmlAttributes = new { @class = "form-control col-sm-12 col-md-7",@placeholder="Enter Vehicle No",@required="" } });
+        <div class="input-group-btn">
+            <button class="btn btn-primary" type="submit" onclick="getdetails()">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </div>
+</form>
+}
+<script type="text/javascript">
+    function getdetails() {
+        var vehicleid = document.getElementById("vehicleid").value;
+        $.ajax({
+            url: '/Home/userregdisplay',
+            type: "GET",
+            data: { vehicleid: vehicleid },
+            datatype: "JSON"
+        });
+
+    };
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

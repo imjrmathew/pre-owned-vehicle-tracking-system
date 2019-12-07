@@ -1,0 +1,99 @@
+﻿@model PreOwnedVehicle.Models.tblpolicecomplaint
+
+@{
+    ViewBag.Title = "Edit Police Details";
+    Layout = "~/Views/Shared/_LayoutPolice.cshtml";
+}
+<style>
+    textarea {
+        width: 290px;
+    }
+
+    .buttonlg {
+        border-radius: 20px;
+        color: white;
+        background-color: #007bff;
+        border: 2px solid #007bff;
+        outline: none;
+        transition: .5s;
+        width: 200px;
+    }
+
+        .buttonlg:hover {
+            background-color: white;
+            color: #007bff;
+            border: 2px solid #007bff;
+        }
+
+    .boxtxt {
+        border-radius: 20px;
+    }
+
+        .boxtxt:focus {
+            border-color: #007bff;
+        }
+</style>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <strong style="font-size:20px">Police</strong>
+                <small style="font-size:15px"> Registration</small>
+            </div>
+            <div class="card-body card-block">
+                @Html.HiddenFor(model => model.policecompliantid)
+                @*<div class="form-group">
+                        @Html.LabelFor(model => model.policecompliantid, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.policecompliantid, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.policecompliantid, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.regid, "Vehicle No:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.DropDownList("regid", new SelectList(ViewBag.vereg, "regid", "vehicleid"), "--select--", htmlAttributes: new { @class = "form-control boxtxt" })
+                        @Html.ValidationMessageFor(model => model.regid, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.details, "Details:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.TextAreaFor(model => model.details, new { @class = "form-control boxtxt", @cols = 80, @rows = 5 })
+                    </div>
+                </div>
+
+                @*<div class="form-group">
+                        @Html.LabelFor(model => model.loginid, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.loginid, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.loginid, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+                <br />
+                <hr />
+                <br />
+                <div class="form-group">
+                    <div style="text-align:center">
+                        <button type="submit" class="btn btn-primary buttonlg">
+                            <i class="fa fa-check-circle"></i>&nbsp;
+                            Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+} 

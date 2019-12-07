@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title Pre-Own Vehicle Tracking Details</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicons -->
+    <link href="~/Content/newstrap/img/favicon.png" rel="icon">
+    <link href="~/Content/newstrap/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+    @Styles.Render("~/Content/newcss")
+    <link href="~/Content/aboutusi.css" rel="stylesheet" />
+    <style>
+        .searchbackground {
+            border-radius: 15px;
+            background-color: white;
+            border: 2px solid #007bff;
+            width: 363px;
+            color: #808080;
+            transition:.5s;
+            position:center;
+        }
+
+            .searchbackground:focus {
+                border-radius: 15px;
+                background-color: transparent;
+                border: 2px solid white;
+                width: 363px;
+                color:white;
+                outline:none;
+                padding-left:7px;
+            }
+            .searchbackground::placeholder{
+                color:#808080;
+                padding-left:7px;
+                font-size:15px;
+            }
+        .pagin {
+            display: block;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!--nav-->
+    <header id="header" class="fixed-top">
+        <div class="container">
+
+            <div class="logo float-left">
+                <!-- Uncomment below if you prefer to use an image logo -->
+                @*<h1 class="text-light"><a href="#header"><span class="font">Pre-Own Vehicle Details</span></a></h1>*@
+                <a href="#intro" class="scrollto"><img src="~/Content/newstrap/img/logonew.png" alt="" class="img-fluid"></a>
+            </div>
+
+            <nav class="main-nav float-right d-none d-lg-block">
+                <ul>
+                    <li class="active"><a href="#intro">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li class="drop-down">
+                        <a href="">Registration</a>
+                        <ul>
+                            <li><a href="" data-toggle="modal" data-target="#regrtomodal">RTO</a></li>
+                            <li><a href="" data-toggle="modal" data-target="#regpolicemodal">Police</a></li>
+                            <li><a href="" data-toggle="modal" data-target="#reginsurancemodal">Insurance</a></li>
+                            <li><a href="" data-toggle="modal" data-target="#regpollutionmodal">Pollution</a></li>
+                            <li><a href="" data-toggle="modal" data-target="#regservicemodal">Service</a></li>
+                        </ul>
+                    </li>
+                    <li><input type="submit" value="Log In" data-toggle="modal" data-target="#loginmodal" class="but" /></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+    <!--#nav-->
+    <!--intro-->
+    <section id="intro" class="clearfix">
+        <div class="container">
+
+            <div class="intro-img">
+                <img src="~/Content/newstrap/img/intro-img.svg" alt="" class="img-fluid">
+            </div>
+
+            <div class="intro-info">
+                <h2>We provide<br><span>solutions</span><br>for your enquiries!</h2>
+                <div>
+                    <a href="#about" class="btn-get-started scrollto">Get Started</a>
+                    <a href="#services" class="btn-services scrollto">Our Services</a>
+                   @{Html.RenderAction("usersearch", "Home");}
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!--#intro-->
+    @RenderBody()
+    <!--footer-->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6 footer-info">
+                        <h3>Pre-Own Vehicle<br /><span><strong>Details</strong></span></h3>
+                        <p><span style="font-weight:bold">Pre-Owned Vehicle Tracking System</span> let the users to know about the insurance details, police cases against that particular vehicle including the general specification details. Users can know about a total detailed description about the current owner of the vehicle as well and all fully specified information about that particular vehicle.</p>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Terms of service</a></li>
+                            <li><a href="#">Privacy policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h4>Contact Us</h4>
+                        <p>
+                            Kuzhitholu <br>
+                            Idukki, 685551<br>
+                            Kerala <br>
+                            <strong>Phone:</strong> +91 9539010168<br>
+                            <strong>Email:</strong> info@example.com<br>
+                        </p>
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-newsletter">
+                        <h4>We are in</h4>
+                        <div class="social-links">
+                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong>Pre-Own Vehicle Details</strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
+        </div>
+    </footer>
+    <!--#footer-->
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+     <div id="preloader"></div> 
+    @Scripts.Render("~/bundles/newjquery")
+    @RenderSection("scripts", required: false)
+    @{Html.RenderAction("Login", "ManageUser");}
+    @{Html.RenderAction("forgetpwd", "ManageUser");}
+    @{Html.RenderAction("RTOcreate", "ManageUser");}
+    @{Html.RenderAction("PoliceCreate", "ManageUser");}
+    @{Html.RenderAction("InsuranceCreate", "ManageUser");}
+    @{Html.RenderAction("PollutionCreate", "ManageUser");}
+    @{Html.RenderAction("ServiceCreate", "ManageUser");}
+</body>
+</html>

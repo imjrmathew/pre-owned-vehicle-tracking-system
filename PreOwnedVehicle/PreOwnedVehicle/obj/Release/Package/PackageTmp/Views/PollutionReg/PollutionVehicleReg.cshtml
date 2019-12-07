@@ -1,0 +1,100 @@
+﻿@model PreOwnedVehicle.Models.tblpollution
+
+@{
+    ViewBag.Title = "Pollution Vehicle Registration";
+    Layout = "~/Views/Shared/_LayoutPollution.cshtml";
+}
+
+<style>
+    .buttonlg{
+    border-radius:20px;
+    color:white;
+    background-color:#007bff;
+    border:2px solid #007bff;
+    outline:none;
+    transition:.5s;
+    width:200px;
+}
+.buttonlg:hover{
+    background-color:white;
+    color:#007bff;
+    border:2px solid #007bff;
+}
+.boxtxt{
+    border-radius:20px;
+}
+    .boxtxt:focus {
+        border-color: #007bff;
+    }
+</style>
+
+@using (Html.BeginForm("PollutionVehicleReg", "PollutionReg", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <strong style="font-size:20px">Pollution</strong>
+                <small style="font-size:15px"> Registration</small>
+            </div>
+            <div class="card-body card-block">
+
+                @*<div class="form-group">
+                        @Html.LabelFor(model => model.pollutionid, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.pollutionid, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.pollutionid, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.loginid, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.loginid, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.loginid, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.regid, "Vehicle No:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.DropDownList("regid", new SelectList(ViewBag.vereg, "regid", "vehicleid"), "--select--", htmlAttributes: new { @class = "form-control boxtxt", required = "required" })
+                        @Html.ValidationMessageFor(model => model.regid, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.renewdate, "Renew Date:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.renewdate, new { htmlAttributes = new { @class = "form-control boxtxt", @type = "date", required = "required" } })
+                        @Html.ValidationMessageFor(model => model.renewdate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <br />
+                <hr />
+                <br />
+                <div class="form-group">
+                    <div style="text-align:center">
+                        <button type="submit" class="btn btn-primary buttonlg">
+                            <i class="fa fa-check-circle"></i>&nbsp;
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+<script>
+    if ('@TempData["dataalready"]' != "") {
+        alert('@TempData["dataalready"]');
+        window.location.href = '@Url.Action("PollutionVehicleReg","PollutionReg")';
+    }
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

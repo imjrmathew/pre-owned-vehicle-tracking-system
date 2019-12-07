@@ -1,0 +1,20 @@
+﻿
+.but{
+    margin-top:5px;
+    border-radius:20px;
+    width:90px;
+    height:30px;
+    font-size:12px;
+    font-weight:bold;
+    color:white;
+    background-color:#007bff;
+    border:2px solid #007bff;
+    outline:none;
+    transition:.5s;
+}
+.but:hover{
+    background-color:white;
+    color:#007bff;
+    border:2px solid #007bff;
+}
+

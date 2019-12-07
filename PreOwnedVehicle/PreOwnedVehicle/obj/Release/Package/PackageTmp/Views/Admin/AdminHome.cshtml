@@ -1,0 +1,122 @@
+﻿
+    @{
+        Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var excount=@TempData["excountreg"];
+        var newcount=@TempData["newcountreg"];
+        var feedcount=@TempData["feedcountreg"];
+        var vehcount=@TempData["vehcountreg"];
+        $("#exval").text(excount);
+        $("#newval").text(newcount);
+        $("#feedval").text(feedcount);
+        $("#vehval").text(vehcount);
+    });
+</script>
+    <div class="content-inner">
+        <header class="page-header">
+            <div class="container-fluid">
+                <h2 class="no-margin-bottom">Welcome, @{Html.RenderAction("adminname", "Admin");}</h2>
+            </div>
+        </header>
+        <!-- Dashboard Counts Section-->
+        <section class="dashboard-counts no-padding-bottom">
+            <div class="container-fluid">
+                <div class="row bg-white has-shadow">
+                    <!-- Item -->
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="item d-flex align-items-center">
+                            <div class="icon" style="background-color:#007bff;Color:white"><i class="icon-user"></i></div>
+                            <div class="title">
+                                <span>New<br>Clients</span>
+                                <div class="progress">
+                                    <div role="progressbar" style="width: 25%; height: 4px; background-color:#007bff;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="number"><strong id="newval"></strong></div>
+                        </div>
+                    </div>
+                    <!-- Item -->
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="item d-flex align-items-center">
+                            <div class="icon" style="background-color:#ff471a;color:white"><i class="icon-user"></i></div>
+                            <div class="title">
+                                <span>Existing<br>Clients</span>
+                                <div class="progress">
+                                    <div role="progressbar" style="width: 70%; height: 4px; background-color:#ff471a;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="number"><strong id="exval"></strong></div>
+                        </div>
+                    </div>
+                    <!-- Item -->
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="item d-flex align-items-center">
+                            <div class="icon" style="background-color:#1ec873;color:white"><i class="icon-padnote"></i></div>
+                            <div class="title">
+                                <span>New<br>Feedback</span>
+                                <div class="progress">
+                                    <div role="progressbar" style="width: 40%; height: 4px; background-color:#1ec873;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" class="progress-bar "></div>
+                                </div>
+                            </div>
+                            <div class="number"><strong id="feedval"></strong></div>
+                        </div>
+                    </div>
+                    <!-- Item -->
+                    <div class="col-xl-3 col-sm-6">
+                        <div class="item d-flex align-items-center">
+                            <div class="icon" style="background-color:#ffa500;color:white"><i class="fa fa-car"></i></div>
+                            <div class="title">
+                                <span>Registered<br>Vehicles</span>
+                                <div class="progress">
+                                    <div role="progressbar" style="width: 50%; height: 4px;background-color:#ffa500;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" class="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="number"><strong id="vehval"></strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="dashboard-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Statistics -->
+                    <div class="statistics col-lg-3 col-12">
+                        <div class="statistic d-flex align-items-center bg-white has-shadow">
+                            <div class="icon" style="background-color:#ff471a;color:white"><i class="fa fa-tasks"></i></div>
+                            <div class="text"><strong>234</strong><br><small>Applications</small></div>
+                        </div>
+                        <div class="statistic d-flex align-items-center bg-white has-shadow">
+                            <div class="icon" style="background-color:#1ec873;color:white"><i class="fa fa-calendar-o"></i></div>
+                            <div class="text"><strong>152</strong><br><small>Interviews</small></div>
+                        </div>
+                        <div class="statistic d-flex align-items-center bg-white has-shadow">
+                            <div class="icon" style="background-color:#ffa500;color:white"><i class="fa fa-paper-plane-o"></i></div>
+                            <div class="text"><strong>147</strong><br><small>Forwards</small></div>
+                        </div>
+                    </div>
+                    <!-- Line Chart            -->
+                    <div class="chart col-lg-6 col-12">
+                        <div class="line-chart bg-white d-flex align-items-center justify-content-center has-shadow">
+                            <canvas id="lineCahrt"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart col-lg-3 col-12">
+                        <!-- Bar Chart   -->
+                        <div class="bar-chart has-shadow bg-white">
+                            <div class="title"><strong class="text-violet">95%</strong><br><small>Current Server Uptime</small></div>
+                            <canvas id="barChartHome"></canvas>
+                        </div>
+                        <!-- Numbers-->
+                        <div class="statistic d-flex align-items-center bg-white has-shadow">
+                            <div class="icon" style="background-color:#1ec873;color:white"><i class="fa fa-line-chart"></i></div>
+                            <div class="text"><strong>99.9%</strong><br><small>Success Rate</small></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>

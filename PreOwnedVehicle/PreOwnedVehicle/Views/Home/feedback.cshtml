@@ -1,0 +1,38 @@
+﻿@model PreOwnedVehicle.Models.tblfeedback
+
+
+@using (Html.BeginForm("feedback","Home",FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+        <!-- Favicons -->
+    <link href="~/Content/newstrap/img/favicon.png" rel="icon">
+    <link href="~/Content/newstrap/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    @Scripts.Render("~/Content/cssnew1")
+    <link href="~/Content/aboutusi.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <div class="form">
+        <form role="form" class="contactForm">
+            <div class="form-row">
+                <div class="form-group col-lg-6">
+                    <input type="text" name="feedname" class="form-control" style="border-radius:20px;" id="name" placeholder="Your Name" data-rule="minlen:3" required data-msg="Please enter at least 4 chars" />
+                    <div class="validation"></div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <input type="email" class="form-control" style="border-radius:20px;" name="email" id="email" placeholder="Your Email" data-rule="email" required data-msg="Please enter a valid email" />
+                    <div class="validation"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" style="border-radius:20px;" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" required data-msg="Please enter at least 8 chars of subject" />
+                <div class="validation"></div>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" style="border-radius:20px;" name="feedback" rows="5" data-rule="required" required data-msg="Please write something for us" placeholder="Message"></textarea>
+                <div class="validation"></div>
+            </div>
+            <div class="text-center"><button type="submit" title="Send Message" id="msge" >Send Message</button></div>
+        </form>
+    </div>
+}
