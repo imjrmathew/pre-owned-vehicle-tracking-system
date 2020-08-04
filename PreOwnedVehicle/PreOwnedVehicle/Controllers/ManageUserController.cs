@@ -269,7 +269,7 @@ namespace PreOwnedVehicle.Controllers
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential("iamdonmathew@gmail.com", "kolkhoza");
+                NetworkCredential NetworkCred = new NetworkCredential("<MAILID>", "<PASSWORD>");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;
